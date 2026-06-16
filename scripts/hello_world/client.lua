@@ -1,2 +1,4 @@
--- This is a simple client-side Lua script that prints "Hello, World!" to the F8 console.
-print("Hello, World!")
+-- This is a simple Hello World client-side script for FiveM
+CreateThread(function()
+    print("Hello, FiveM World!")
+end)
