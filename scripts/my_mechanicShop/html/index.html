@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="shop-container" class="hidden">
+        <div class="shop-header">
+            <h1>MECHANIC SHOP</h1>
+            <span class="close-btn" id="closeBtn">&times;</span>
+        </div>
+
+        <div class="shop-content" id="shopView">
+            <div class="item-card">
+                <div class="item-icon">🔧</div>
+                <div class="item-info">
+                    <div class="item-name" id="itemName">Mechanic Tools</div>
+                    <div class="item-price" id="itemPrice">$10,000</div>
+                </div>
+                <div class="item-actions">
+                    <button class="btn btn-buy" id="buyBtn">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-content hidden" id="houseView">
+            <div class="section-title">Choose a house for delivery</div>
+            <div id="houseList"></div>
+            <button class="btn btn-back" id="backBtn">Back</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

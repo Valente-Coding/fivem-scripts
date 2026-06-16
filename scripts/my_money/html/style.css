@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: transparent;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Money HUD - Always Visible */
+.money-hud {
+    position: fixed;
+    top: calc(50% + 40px);
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    pointer-events: none;
+}
+
+.money-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.money-label {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+}
+
+.money-value {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-variant-numeric: tabular-nums;
+}
+
+.money-item.cash .money-value {
+    color: rgba(74, 222, 128, 0.95);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.money-item.dirty .money-value {
+    color: rgba(239, 68, 68, 0.95);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Flash animation for successful transactions */
+@keyframes flash-bright {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+}
+
+.money-item.flash {
+    animation: flash-bright 0.6s ease-in-out;
+    will-change: filter, opacity;
+}
+

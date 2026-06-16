@@ -1,0 +1,8 @@
+- This server doesn't use ESX. It's a custom framework.
+- All saved data will be stored in the "saved_data" folder using "my_datamanager" script.
+- All scripts need to work dynamically. If the saved data doesn't exist, it will create it
+- This server will not use a database. All save data should be stored in the "saved_data" folder
+- All scripts should use a modern HTML UI. Make sure that there are no default background so there are no black boxes
+- All scripts should be lightweight and not use too much memory or processing power
+- Only character data should be stored in the "saved_data" folder. This way, I'll be able to just delete files in the "saved_data" folder to start over or delete a whole character easily.
+- The server will only use "money" and "dirty money".

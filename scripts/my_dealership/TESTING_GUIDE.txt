@@ -1,0 +1,208 @@
+================================================================================
+TESTING GUIDE - my_dealership Backend Fixes
+================================================================================
+
+## Quick Start
+
+1. Restart resources:
+   restart my_vehicles
+   restart my_dealership
+
+2. Check console for startup validation
+   - Should see: "Server started successfully"
+   - Should see: "Loaded 5 vehicles"
+   - Should see: "Authorization timeout: 60 seconds"
+
+================================================================================
+TEST CASE 1: Normal Purchase Flow
+================================================================================
+
+Setup:
+1. Join server as player
+2. Run: /addmoney cash 100000
+
+Steps:
+1. Go to dealership location (-57, -1096, 26)
+2. Press E to open dealership UI
+3. Purchase "Truffade Adder" ($50,000)
+4. Vehicle should spawn at spawn location
+
+Verify:
+✓ Money reduced from $100,000 to $50,000
+✓ Vehicle spawned with unique plate (8 characters)
+✓ Console shows: "Player X purchased Truffade Adder (Plate: XXXXXXXX) for $50000"
+✓ Console shows: "VerifyPurchase: Authorized and consumed for plate: XXXXXXXX"
+✓ Vehicle persists after restart my_vehicles
+
+Expected Result: PASS
+
+
+================================================================================
+TEST CASE 2: Insufficient Funds
+================================================================================
+
+Setup:
+1. Join server as player
+2. Run: /setmoney cash 1000
+
+Steps:
+1. Go to dealership location
+2. Try to purchase "Truffade Adder" ($50,000)
+
+Verify:
+✓ Purchase rejected with message: "Insufficient funds. Need $50000, have $1000"
+✓ Money remains at $1,000
+✓ Console shows: "Player X has insufficient funds: $1000 < $50000"
+✓ No vehicle spawned
+
+Expected Result: PASS
+
+
+================================================================================
+TEST CASE 3: Expired Authorization (Refund Test)
+================================================================================
+
+Setup:
+1. Edit my_dealership/config.lua
+2. Change: Config.AuthorizationTimeout = 5000  (5 seconds instead of 60)
+3. Run: restart my_dealership
+4. Join server as player
+5. Run: /addmoney cash 100000
+
+Steps:
+1. Go to dealership location
+2. Purchase "Bravado Banshee" ($25,000)
+3. IMMEDIATELY press F1 to close NUI (prevent spawn)
+4. Wait 10 seconds
+5. Check console logs
+
+Verify:
+✓ Money initially deducted: $100,000 → $75,000
+✓ After 5-6 seconds, console shows: "Refunded $25000 to player X (expired authorization: XXXXXXXX)"
+✓ After 5-6 seconds, console shows: "Cleaned up 1 expired authorization(s)"
+✓ Money restored: $75,000 → $100,000
+
+Expected Result: PASS
+
+IMPORTANT: Restore Config.AuthorizationTimeout = 60000 after test!
+
+
+================================================================================
+TEST CASE 4: Player Disconnect
+================================================================================
+
+Setup:
+1. Join server as player
+2. Run: /addmoney cash 100000
+
+Steps:
+1. Go to dealership location
+2. Purchase "Gallivanter Baller" ($15,000)
+3. IMMEDIATELY disconnect (quit game or restart FiveM)
+4. Check server console logs
+
+Verify:
+✓ Console shows: "Player X disconnected with paid authorization (Plate: XXXXXXXX) - cannot refund"
+✓ Console shows: "Removed authorization for disconnected player: X"
+✓ No errors or warnings (just informational logs)
+✓ Money NOT refunded (player gone, acceptable loss)
+
+Expected Result: PASS
+
+
+================================================================================
+TEST CASE 5: Duplicate Plate Prevention
+================================================================================
+
+Setup:
+1. Have 2 players join server
+2. Both players run: /addmoney cash 200000
+
+Steps:
+1. Both players go to dealership
+2. Player 1 purchases "Truffade Adder"
+3. Player 2 purchases "Progen T20"
+4. Player 1 purchases "Pegassi Zentorno"
+5. Player 2 purchases "Bravado Banshee"
+6. Player 1 purchases "Gallivanter Baller"
+
+Verify:
+✓ All 5 vehicles have unique plates (check console logs)
+✓ No plate appears twice
+✓ Run: /listvehicles (should show 5 vehicles with unique plates)
+✓ No errors in console
+
+Expected Result: PASS
+
+
+================================================================================
+TEST CASE 6: Dependency Missing
+================================================================================
+
+Setup:
+1. Stop my_money resource
+   Run: stop my_money
+
+Steps:
+1. Restart my_dealership
+   Run: restart my_dealership
+
+Verify:
+✓ Console shows: "Dependency 'my_money' is not running (state: stopped)"
+✓ Console shows: "Missing dependencies - dealership will not function correctly"
+✓ Console shows: "Please ensure my_datamanager, my_money, and my_vehicles are started before my_dealership"
+✓ Resource does NOT show "Server started successfully"
+
+Cleanup:
+Run: start my_money
+Run: restart my_dealership
+
+Expected Result: PASS
+
+
+================================================================================
+CONSOLE LOG EXAMPLES
+================================================================================
+
+Successful Purchase:
+[my_dealership SUCCESS] Player 1 purchased Truffade Adder (Plate: A7X92K4P) for $50000
+[my_dealership] VerifyPurchase: Authorized and consumed for plate: A7X92K4P
+[Vehicles] Vehicle claimed: A7X92K4P by PlayerName (Model: adder at -31.00, -1090.48, 26.16)
+
+Insufficient Funds:
+[my_dealership] Player 1 has insufficient funds: $1000 < $50000
+
+Expired Authorization:
+[my_dealership] Refunded $25000 to player 1 (expired authorization: B3C5D7E9)
+[my_dealership] Cleaned up 1 expired authorization(s)
+
+Player Disconnect:
+[my_dealership] Player 1 disconnected with paid authorization (Plate: F9G2H5J8) - cannot refund
+[my_dealership] Removed authorization for disconnected player: 1
+
+Dependency Missing:
+[my_dealership ERROR] Dependency 'my_money' is not running (state: stopped)
+[my_dealership ERROR] Missing dependencies - dealership will not function correctly
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Issue: "DoesPlateExist export not found"
+Fix: restart my_vehicles (must restart BEFORE my_dealership)
+
+Issue: Refunds not working
+Check: Is cleanup thread running? (Wait 60 seconds for next cleanup cycle)
+
+Issue: Config validation errors
+Fix: Check config.lua - all vehicles must have model, name, price
+Fix: AuthorizationTimeout must be number >= 1000
+
+Issue: Plates still duplicating
+Check: Is my_vehicles started? (DoesPlateExist export required)
+
+
+================================================================================
+END OF TESTING GUIDE
+================================================================================

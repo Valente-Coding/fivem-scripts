@@ -1,0 +1,394 @@
+/* ===============================================
+   MONEY LAUNDERING NUI - STYLE.CSS
+   Custom FiveM Framework - BareBones
+   Modern Electric Cyber Theme (matches dealership)
+   =============================================== */
+
+:root {
+    /* Modern Color Palette */
+    --accent-primary: #00D4FF;
+    --accent-secondary: #8B5CF6;
+    --accent-success: #10B981;
+    --accent-success-hover: #059669;
+
+    /* Dirty-money theme accents */
+    --accent-dirty: #F59E0B;
+    --accent-dirty-glow: rgba(245, 158, 11, 0.4);
+    --accent-clean: #10B981;
+    --accent-clean-glow: rgba(16, 185, 129, 0.5);
+
+    /* Backgrounds */
+    --bg-base: rgba(10, 15, 35, 0.25);
+    --bg-elevated: rgba(15, 25, 50, 0.92);
+    --bg-panel: rgba(20, 30, 60, 0.25);
+
+    /* Text Colors */
+    --text-primary: rgba(255, 255, 255, 0.98);
+    --text-secondary: rgba(255, 255, 255, 0.80);
+    --text-tertiary: rgba(255, 255, 255, 0.60);
+
+    /* Error */
+    --error-red: #EF4444;
+    --error-red-bg: rgba(239, 68, 68, 0.15);
+
+    /* Borders & Shadows */
+    --border-color: rgba(0, 212, 255, 0.20);
+    --text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.4);
+    --glow-emerald: 0 0 25px rgba(16, 185, 129, 0.5);
+}
+
+/* ===============================================
+   BASE
+   =============================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    pointer-events: none;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===============================================
+   FEEDBACK BANNER
+   =============================================== */
+
+.feedback-message {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 18px 35px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    text-shadow: var(--text-shadow);
+    pointer-events: auto;
+    z-index: 10000;
+    min-width: 350px;
+    text-align: center;
+    animation: slideInFromTop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feedback-message.success {
+    background: var(--bg-elevated);
+    color: var(--accent-success);
+    border: 2px solid var(--accent-success);
+    box-shadow: var(--glow-emerald);
+}
+
+.feedback-message.error {
+    background: var(--bg-elevated);
+    color: var(--error-red);
+    border: 2px solid var(--error-red);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.feedback-message.closing {
+    animation: slideOutToTop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===============================================
+   MAIN CONTAINER
+   =============================================== */
+
+.launder-container {
+    pointer-events: auto;
+    position: relative;
+    width: 520px;
+    background: transparent;
+    border-radius: 16px;
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.launder-container.closing {
+    animation: fadeOut 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===============================================
+   HEADER
+   =============================================== */
+
+.launder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 35px;
+    border-bottom: 2px solid var(--border-color);
+    background: var(--bg-elevated);
+    border-radius: 16px 16px 0 0;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-dirty) 0%, var(--accent-clean) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 20px var(--accent-dirty-glow));
+}
+
+.close-btn {
+    background: var(--error-red-bg);
+    border: 2px solid var(--error-red);
+    color: var(--error-red);
+    font-size: 22px;
+    font-weight: bold;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: var(--error-red);
+    color: white;
+    transform: scale(1.08) rotate(90deg);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+.close-btn:active {
+    transform: scale(0.95) rotate(90deg);
+}
+
+/* ===============================================
+   CONTENT
+   =============================================== */
+
+.launder-content {
+    background: var(--bg-elevated);
+    border-radius: 0 0 16px 16px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Icon */
+.launder-icon {
+    font-size: 56px;
+    filter: drop-shadow(0 0 15px var(--accent-dirty-glow));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.launder-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    text-shadow: var(--text-shadow);
+    text-align: center;
+}
+
+/* ===============================================
+   TRANSACTION DETAILS
+   =============================================== */
+
+.transaction-details {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-shadow: var(--text-shadow);
+}
+
+.detail-value {
+    font-size: 18px;
+    font-weight: 800;
+    text-shadow: var(--text-shadow);
+}
+
+.detail-value.dirty {
+    color: var(--accent-dirty);
+    filter: drop-shadow(0 0 6px var(--accent-dirty-glow));
+}
+
+.detail-value.cut {
+    color: var(--error-red);
+    font-size: 16px;
+}
+
+.detail-value.rate {
+    color: var(--accent-primary);
+    font-size: 16px;
+}
+
+.detail-value.payout {
+    font-size: 26px;
+    color: var(--accent-clean);
+    filter: drop-shadow(0 0 10px var(--accent-clean-glow));
+}
+
+.detail-divider {
+    height: 1px;
+    background: var(--border-color);
+    width: 100%;
+}
+
+.detail-divider.highlight {
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-dirty), var(--accent-clean));
+    box-shadow: 0 0 8px var(--accent-dirty-glow);
+}
+
+.payout-row {
+    padding-top: 4px;
+}
+
+.payout-label {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* ===============================================
+   WARNING
+   =============================================== */
+
+.launder-warning {
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--error-red-bg);
+    border: 1px solid var(--error-red);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--error-red);
+    text-shadow: var(--text-shadow);
+}
+
+/* ===============================================
+   ACTION BUTTONS
+   =============================================== */
+
+.action-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    text-shadow: var(--text-shadow);
+}
+
+.btn-launder {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.35));
+    border-color: var(--accent-success);
+    color: var(--accent-success);
+    box-shadow: var(--glow-emerald);
+}
+
+.btn-launder:hover:not(:disabled) {
+    background: var(--accent-success);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+}
+
+.btn-launder:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.btn-launder:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-cancel {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: var(--text-secondary);
+}
+
+.btn-cancel:hover {
+    background: var(--error-red-bg);
+    border-color: var(--error-red);
+    color: var(--error-red);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(239, 68, 68, 0.3);
+}
+
+.btn-cancel:active {
+    transform: translateY(-1px);
+}
+
+/* ===============================================
+   ANIMATIONS
+   =============================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes slideInFromTop {
+    from { opacity: 0; transform: translate(-50%, -30px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes slideOutToTop {
+    from { opacity: 1; transform: translate(-50%, 0); }
+    to   { opacity: 0; transform: translate(-50%, -30px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.08); }
+}

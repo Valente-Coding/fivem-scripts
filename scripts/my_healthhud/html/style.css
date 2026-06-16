@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: transparent;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Health HUD - more spacing below money HUD */
+.health-hud {
+    position: fixed;
+    top: calc(50% + 160px);
+    left: 20px;
+    pointer-events: none;
+}
+
+.health-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    min-width: 180px;
+}
+
+/* Heart icon */
+.health-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(239, 68, 68, 0.95);
+    filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.4));
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.health-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Pulse animation for low health */
+@keyframes pulse-heart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+}
+
+.health-icon.pulse {
+    animation: pulse-heart 0.8s ease-in-out infinite;
+}
+
+/* Bar wrapper */
+.health-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+/* Health bar background */
+.health-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 90px;
+}
+
+/* Health bar fill */
+.health-bar-fill {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(74, 222, 128, 0.9), rgba(52, 211, 153, 0.9));
+    transition: width 0.4s ease, background 0.4s ease;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+}
+
+.health-bar-fill.high {
+    background: linear-gradient(90deg, rgba(74, 222, 128, 0.9), rgba(52, 211, 153, 0.9));
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+}
+
+.health-bar-fill.medium {
+    background: linear-gradient(90deg, rgba(250, 204, 21, 0.9), rgba(234, 179, 8, 0.9));
+    box-shadow: 0 0 8px rgba(250, 204, 21, 0.3);
+}
+
+.health-bar-fill.low {
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.9), rgba(220, 38, 38, 0.9));
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Percentage text */
+.health-value {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-variant-numeric: tabular-nums;
+    min-width: 38px;
+    text-align: right;
+    transition: color 0.3s ease;
+}
+
+.health-value.high {
+    color: rgba(74, 222, 128, 0.95);
+}
+
+.health-value.medium {
+    color: rgba(250, 204, 21, 0.95);
+}
+
+.health-value.low {
+    color: rgba(239, 68, 68, 0.95);
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hud">
+        <div class="hud-panel">
+
+            <!-- Speed + Mileage -->
+            <div class="speed-block">
+                <span class="speed-number" id="speed-val">0</span>
+                <span class="speed-label">KM/H</span>
+                <span class="mileage-text" id="mileage-text"></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Engine + Body health -->
+            <div class="info-block">
+                <div class="health-row">
+                    <div class="health-icon engine">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 10h10M12 7v6"/>
+                            <rect x="4" y="7" width="16" height="10" rx="2"/>
+                            <path d="M2 12h2M20 12h2"/>
+                        </svg>
+                    </div>
+                    <div class="health-bar-wrap">
+                        <div class="health-bar-header">
+                            <span class="health-bar-label">Engine</span>
+                            <span class="health-bar-pct" id="engine-pct" style="color:#4ade80;">100%</span>
+                        </div>
+                        <div class="health-bar-track">
+                            <div class="health-bar-fill engine high" id="engine-bar" style="width:100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="health-row">
+                    <div class="health-icon body">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                        </svg>
+                    </div>
+                    <div class="health-bar-wrap">
+                        <div class="health-bar-header">
+                            <span class="health-bar-label">Body</span>
+                            <span class="health-bar-pct" id="body-pct" style="color:#a78bfa;">100%</span>
+                        </div>
+                        <div class="health-bar-track">
+                            <div class="health-bar-fill body high" id="body-bar" style="width:100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="health-row">
+                    <div class="health-icon oil">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C9.24 2 7 4.24 7 7c0 2.85 2.92 7.21 5 9.88 2.11-2.69 5-7.04 5-9.88 0-2.76-2.24-5-5-5zm0 7.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+                            <path d="M5 20h14v2H5z"/>
+                        </svg>
+                    </div>
+                    <div class="health-bar-wrap">
+                        <div class="health-bar-header">
+                            <span class="health-bar-label">Oil</span>
+                            <span class="health-bar-pct" id="oil-pct" style="color:#fb923c;">100%</span>
+                        </div>
+                        <div class="health-bar-track">
+                            <div class="health-bar-fill oil high" id="oil-bar" style="width:100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

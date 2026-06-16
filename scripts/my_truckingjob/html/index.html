@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Job Menu -->
+    <div id="job-menu" class="hidden">
+        <div class="menu-header">
+            <h1>TRUCKING JOB</h1>
+            <span class="close-btn" id="menuCloseBtn">&times;</span>
+        </div>
+        <div class="menu-body">
+            <div class="stat-row"><span>Level</span><span id="menuLevel">1</span></div>
+            <div class="stat-row"><span>Jobs Done</span><span id="menuJobs">0</span></div>
+            <div class="stat-row"><span>Deliveries</span><span id="menuDeliveries">0</span></div>
+            <div class="stat-row"><span>Total Earnings</span><span id="menuEarnings">$0</span></div>
+            <div class="stat-row"><span>Next Level In</span><span id="menuNextLevel">5 jobs</span></div>
+            <div class="stat-row"><span>Jobs Today</span><span id="menuDailyJobs">0/5</span></div>
+            <button class="start-btn" id="startBtn">START TRUCKING</button>
+        </div>
+    </div>
+
+    <!-- In-Job HUD -->
+    <div id="job-hud" class="hidden">
+        <div class="hud-title">TRUCKING</div>
+        <div class="hud-row"><span>Level</span><span id="hudLevel">1</span></div>
+        <div class="hud-row"><span>Time Left</span><span id="hudTimer">15:00</span></div>
+        <div class="hud-row"><span>Next Level</span><span id="hudNextLevel">5 jobs</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

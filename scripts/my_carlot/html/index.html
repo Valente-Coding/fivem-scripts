@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Lot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Feedback Message Banner -->
+    <div class="feedback-message" id="feedback-message" style="display: none;"></div>
+
+    <!-- ==================== PURCHASE VIEW ==================== -->
+    <div class="panel-container" id="purchase-container">
+        <div class="panel-header">
+            <h1 class="header-title">CAR LOT PURCHASE</h1>
+            <button class="close-btn" id="purchase-close-btn" aria-label="Close">&#10005;</button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-icon">&#128663;</div>
+            <h2 class="panel-name" id="dealership-name">Sandy Shores Car Lot</h2>
+            <div class="divider"></div>
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="info-label">PROPERTY</span>
+                    <span class="info-value">Car Lot</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">STATUS</span>
+                    <span class="info-value" id="purchase-status">Available</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">PRICE</span>
+                    <span class="info-value price-value" id="purchase-price">$0</span>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <p class="panel-description" id="purchase-description">
+                Purchase this car lot to sell your vehicles at <strong>90% market value</strong>.
+            </p>
+            <button class="action-btn" id="purchase-btn">PURCHASE</button>
+        </div>
+    </div>
+
+    <!-- ==================== CONFIRM LISTING VIEW ==================== -->
+    <div class="panel-container confirm-container" id="confirm-container">
+        <div class="panel-header">
+            <h1 class="header-title">LIST VEHICLE FOR SALE</h1>
+            <button class="close-btn" id="confirm-close-btn" aria-label="Close">&#10005;</button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-icon">&#128176;</div>
+            <h2 class="panel-name" id="confirm-vehicle-name">Vehicle</h2>
+            <div class="divider"></div>
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="info-label">SALE PRICE</span>
+                    <span class="info-value price-value" id="confirm-price">$0</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">PRICING</span>
+                    <span class="info-value">90% of Market Value</span>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <p class="panel-description">
+                Your vehicle will be placed for sale on the lot. An NPC buyer may purchase it over time.
+            </p>
+            <div class="btn-row">
+                <button class="action-btn confirm-yes-btn" id="confirm-yes-btn">CONFIRM</button>
+                <button class="action-btn cancel-btn" id="confirm-cancel-btn">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MANAGEMENT VIEW ==================== -->
+    <div class="panel-container manage-container" id="manage-container">
+        <div class="panel-header">
+            <h1 class="header-title">CAR LOT MANAGEMENT</h1>
+            <button class="close-btn" id="manage-close-btn" aria-label="Close">&#10005;</button>
+        </div>
+        <div class="panel-content manage-content">
+            <!-- Tabs -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="listings">Vehicles for Sale</button>
+                <button class="tab-btn" data-tab="sales">Sales History</button>
+            </div>
+
+            <!-- Listings Tab -->
+            <div class="tab-panel active" id="tab-listings">
+                <div class="list-container" id="listings-list">
+                    <div class="empty-state">No vehicles listed for sale.</div>
+                </div>
+            </div>
+
+            <!-- Sales Tab -->
+            <div class="tab-panel" id="tab-sales">
+                <div class="list-container" id="sales-list">
+                    <div class="empty-state">No sales yet.</div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-bar" id="summary-bar">
+                <span class="summary-item">Listed: <strong id="summary-listed">0</strong></span>
+                <span class="summary-item">Total Earned: <strong id="summary-earned">$0</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

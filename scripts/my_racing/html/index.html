@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="racing-container">
+    <div class="racing-frame">
+
+        <!-- HEADER -->
+        <div class="racing-header">
+            <h2>🏁 Racing</h2>
+            <button class="close-btn" id="btn-close">&times;</button>
+        </div>
+
+        <!-- TAB BAR -->
+        <div class="tab-bar">
+            <button class="tab active" data-tab="tracks">Tracks</button>
+            <button class="tab" data-tab="lobbies">Join Race</button>
+            <button class="tab" data-tab="lobby">My Lobby</button>
+        </div>
+
+        <!-- ═══ TRACKS TAB ═══ -->
+        <div class="tab-content active" id="tab-tracks">
+            <div class="section-actions">
+                <button class="btn-primary" id="btn-create-track">+ Create Track</button>
+            </div>
+            <div class="track-list" id="track-list">
+                <div class="empty-state">No tracks yet. Create one!</div>
+            </div>
+        </div>
+
+        <!-- ═══ JOIN LOBBIES TAB ═══ -->
+        <div class="tab-content" id="tab-lobbies">
+            <div class="lobby-list" id="lobby-list">
+                <div class="empty-state">No active lobbies.</div>
+            </div>
+        </div>
+
+        <!-- ═══ MY LOBBY TAB ═══ -->
+        <div class="tab-content" id="tab-lobby">
+            <div id="lobby-view" class="empty-state">You are not in a lobby.</div>
+        </div>
+
+        <!-- ═══ RESULTS OVERLAY ═══ -->
+        <div class="overlay hidden" id="results-overlay">
+            <div class="results-card">
+                <h3>🏆 Race Results</h3>
+                <div id="results-body"></div>
+                <button class="btn-primary" id="btn-close-results">Close</button>
+            </div>
+        </div>
+
+        <!-- ═══ CREATE TRACK MODAL ═══ -->
+        <div class="overlay hidden" id="create-overlay">
+            <div class="modal-card">
+                <h3>Create New Track</h3>
+                <label>Track Name</label>
+                <input type="text" id="input-track-name" maxlength="40" placeholder="e.g. Downtown Circuit">
+                <p class="hint">You'll place checkpoints in-game using <strong>E</strong>.</p>
+                <div class="modal-actions">
+                    <button class="btn-secondary" id="btn-cancel-create">Cancel</button>
+                    <button class="btn-primary" id="btn-confirm-create">Start Placing</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ HOST RACE MODAL ═══ -->
+        <div class="overlay hidden" id="host-overlay">
+            <div class="modal-card">
+                <h3>Host a Race</h3>
+                <label>Bet Amount ($)</label>
+                <input type="number" id="input-bet" min="0" value="0" placeholder="0 = free race">
+                <p class="hint">Each player pays this amount. Winner takes all.</p>
+                <input type="hidden" id="host-track-id">
+                <div class="modal-actions">
+                    <button class="btn-secondary" id="btn-cancel-host">Cancel</button>
+                    <button class="btn-primary" id="btn-confirm-host">Create Lobby</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+================================================================================
+  QUICK START - ADDING VEHICLE IMAGES
+================================================================================
+
+STEP 1: PREPARE YOUR IMAGES
+----------------------------
+Get 13 vehicle images in JPG format:
+  - Format: JPG (not PNG, not JPEG extension)
+  - Size: ~800x450px recommended
+  - File Size: < 200KB each (compress them!)
+  - Aspect: Landscape (16:9 or 4:3)
+
+STEP 2: NAME YOUR IMAGES
+-------------------------
+Rename each image to match the vehicle model name (lowercase):
+
+  rhapsody.jpg    →  Declasse Rhapsody
+  prairie.jpg     →  Bollokan Prairie
+  brioso2.jpg     →  Grotti Brioso 300
+  panto.jpg       →  Benefactor Panto
+  weevil.jpg      →  BF Weevil
+  blista.jpg      →  Dinka Blista
+  dilettante.jpg  →  Karin Dilettante
+  issi2.jpg       →  Weeny Issi
+  club.jpg        →  BF Club
+  brioso.jpg      →  Grotti Brioso R/A
+  issi3.jpg       →  Weeny Issi Classic
+  kanjo.jpg       →  Dinka Blista Kanjo
+  asbo.jpg        →  Maxwell Asbo
+
+STEP 3: COPY TO FOLDER
+----------------------
+Copy all 13 JPG files to:
+  my_dealership/html/images/
+
+STEP 4: VERIFY
+--------------
+Check files exist:
+  ls my_dealership/html/images/*.jpg
+
+Should see 13 files listed.
+
+STEP 5: RESTART RESOURCE
+-------------------------
+In server console:
+  restart my_dealership
+
+STEP 6: TEST IN-GAME
+--------------------
+1. Go to dealership location
+2. Press E to open UI
+3. Click on different vehicles
+4. Images should appear at top of details panel
+
+TROUBLESHOOTING
+---------------
+✗ No images appear
+  → Check filenames match exactly (lowercase)
+  → Check file extension is .jpg (not .jpeg)
+  → Restart the resource
+
+✗ Some images show, some don't
+  → Missing images show "No Image Available" (this is normal)
+  → Add the missing JPG files
+
+✗ Images are huge file sizes
+  → Compress with online tool (tinyjpg.com)
+  → Or resize to 800x450px
+
+================================================================================
+THAT'S IT! Images should now display in the dealership UI.
+================================================================================

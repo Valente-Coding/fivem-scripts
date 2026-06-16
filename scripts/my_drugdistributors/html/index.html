@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Drug Distributors</title>
+</head>
+<body>
+    <div id="distributor-container">
+        <div class="distributor-header">
+            <h1>Drug Distribution Network</h1>
+            <div class="close-btn" id="close-menu"><i class="fas fa-times"></i></div>
+        </div>
+        
+        <div class="distributor-content">
+            <div class="distributor-tabs">
+                <div class="tab active" data-tab="manage">Manage Distributors</div>
+                <div class="tab" data-tab="inventory">Drug Inventory</div>
+                <div class="tab" data-tab="profits">Profits</div>
+            </div>
+              <div class="tab-content" id="tab-manage">                <div class="info-section">
+                    <p class="info-text">Each distributor costs <span class="highlight config-hire-cost">$10,000</span> to hire and will sell <span class="highlight config-sell-amount">5</span> units every <span class="highlight config-sell-interval">10</span> minutes.</p>
+                    <p class="info-text">Distributors take a <span class="highlight config-cut-percentage">20%</span> cut of what they sell.</p>
+                    <p class="info-text">Distributors only accept <span class="highlight">large drug packages</span>.</p>
+                </div>
+                
+                <div class="distributor-stats">
+                    <div class="stat-block">
+                        <div class="stat-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="stat-info">
+                            <h3>Active Distributors</h3>
+                            <div class="stat-value" id="distributor-count">0</div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="action-section">
+                    <button class="action-btn hire-btn" id="hire-distributor">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Hire Distributor ($20,000)</span>
+                    </button>
+                    <button class="action-btn fire-btn" id="fire-distributor">
+                        <i class="fas fa-user-minus"></i>
+                        <span>Fire Distributor</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tab-content hidden" id="tab-inventory">                <div class="info-section">
+                    <p class="info-text">Deposit <span class="highlight">large drug packages only</span> for your distributors to sell.</p>
+                </div>
+                
+                <div class="action-section">
+                    <button class="action-btn deposit-all-btn" id="deposit-all-drugs">
+                        <i class="fas fa-upload"></i>
+                        <span>Deposit All Large Drugs</span>
+                    </button>
+                </div>
+                
+                <div class="inventory-grid" id="inventory-grid">
+                    <!-- Drug inventory items -->                    <div class="inventory-item weed">
+                        <div class="item-icon"><i class="fas fa-cannabis"></i></div>
+                        <div class="item-details">
+                            <h3>Large Weed Package</h3>
+                            <p>In stock: <span id="large_weed-amount">0</span></p>
+                        </div>
+                        <div class="item-actions">
+                            <input type="number" min="1" value="1" id="large_weed-deposit-amount">
+                            <div class="button-group">
+                                <button class="deposit-btn" data-drug="large_weed">Deposit</button>
+                                <button class="withdraw-btn" data-drug="large_weed">Withdraw</button>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="inventory-item cocaine">
+                        <div class="item-icon"><i class="fas fa-pills"></i></div>
+                        <div class="item-details">
+                            <h3>Large Cocaine Package</h3>
+                            <p>In stock: <span id="large_cocaine-amount">0</span></p>
+                        </div>
+                        <div class="item-actions">
+                            <input type="number" min="1" value="1" id="large_cocaine-deposit-amount">
+                            <div class="button-group">
+                                <button class="deposit-btn" data-drug="large_cocaine">Deposit</button>
+                                <button class="withdraw-btn" data-drug="large_cocaine">Withdraw</button>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="inventory-item meth">
+                        <div class="item-icon"><i class="fas fa-vial"></i></div>
+                        <div class="item-details">
+                            <h3>Large Meth Package</h3>
+                            <p>In stock: <span id="large_meth-amount">0</span></p>
+                        </div>
+                        <div class="item-actions">
+                            <input type="number" min="1" value="1" id="large_meth-deposit-amount">
+                            <div class="button-group">
+                                <button class="deposit-btn" data-drug="large_meth">Deposit</button>
+                                <button class="withdraw-btn" data-drug="large_meth">Withdraw</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content hidden" id="tab-profits">
+                <div class="info-section">
+                    <p class="info-text">Profits are automatically calculated after sales. Withdraw them as dirty money.</p>
+                </div>
+                
+                <div class="profits-section">                    <div class="profit-row">
+                        <div class="profit-type weed">
+                            <i class="fas fa-cannabis"></i>
+                            <span>Large Weed Profits</span>
+                        </div>
+                        <div class="profit-value" id="large_weed-profit">$0</div>
+                    </div>
+                    
+                    <div class="profit-row">
+                        <div class="profit-type cocaine">
+                            <i class="fas fa-pills"></i>
+                            <span>Large Cocaine Profits</span>
+                        </div>
+                        <div class="profit-value" id="large_cocaine-profit">$0</div>
+                    </div>
+                    
+                    <div class="profit-row">
+                        <div class="profit-type meth">
+                            <i class="fas fa-vial"></i>
+                            <span>Large Meth Profits</span>
+                        </div>
+                        <div class="profit-value" id="large_meth-profit">$0</div>
+                    </div>
+                    
+                    <div class="profit-row total">
+                        <div class="profit-type">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Total Profits</span>
+                        </div>
+                        <div class="profit-value" id="total-profit">$0</div>
+                    </div>
+                </div>
+                
+                <div class="action-section">
+                    <button class="action-btn withdraw-btn" id="withdraw-profits">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <span>Withdraw All Profits</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="distributor-footer">
+            <div class="player-money-container">
+                <div class="player-money">
+                    <i class="fas fa-wallet"></i>
+                    <span id="player-money">$0</span>
+                </div>
+                <div class="player-black-money">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span id="player-black-money">$0</span>
+                </div>
+            </div>
+            <div class="payment-method">
+                <div class="payment-option black-option active" data-payment="black_money">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Dirty Money</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

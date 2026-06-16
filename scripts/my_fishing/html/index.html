@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishing Stats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="fishing-stats" class="hidden">
+        <div class="stats-header">
+            <span class="fish-icon">&#127911;</span>
+            <h2>Fishing Stats</h2>
+        </div>
+        <div class="stats-content">
+            <div class="stat-item">
+                <span class="stat-label">Current Session:</span>
+                <span class="stat-value" id="current-session">0 fish</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Session Earnings:</span>
+                <span class="stat-value" id="session-earnings">$0</span>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-item">
+                <span class="stat-label">Total Fish Caught:</span>
+                <span class="stat-value" id="total-fish">0 fish</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Earnings:</span>
+                <span class="stat-value" id="total-earnings">$0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Last Catch:</span>
+                <span class="stat-value" id="last-catch">None</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

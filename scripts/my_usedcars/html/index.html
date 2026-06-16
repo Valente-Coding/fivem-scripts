@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Cars Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="usedcars-container">
+        <div class="usedcars-panel">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <i class="fas fa-car-side"></i>
+                    <h1>Used Cars Marketplace</h1>
+                </div>
+                <div class="close-btn" id="close-btn">&times;</div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="browse">
+                    <i class="fas fa-search"></i>
+                    Browse Cars
+                </button>
+                <button class="tab-btn" data-tab="my-listings">
+                    <i class="fas fa-list"></i>
+                    My Listings
+                </button>
+                <button class="tab-btn" data-tab="sell">
+                    <i class="fas fa-plus-circle"></i>
+                    Sell Vehicle
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Browse Cars Tab -->
+                <div class="tab-content active" id="browse-tab">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search by model or plate...">
+                        <select id="sort-select">
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+                    
+                    <div class="vehicles-grid" id="browse-vehicles-grid"></div>
+                    
+                    <div class="no-vehicles" id="browse-no-vehicles">
+                        <i class="fas fa-car"></i>
+                        <p>No vehicles available for sale at the moment</p>
+                    </div>
+                </div>
+
+                <!-- My Listings Tab -->
+                <div class="tab-content" id="my-listings-tab">
+                    <div class="listings-header">
+                        <div class="listings-info">
+                            <span>Your Listings: <strong id="listing-count">0</strong></span>
+                            <span>Limit: <strong id="listing-limit">0</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div class="vehicles-grid" id="my-vehicles-grid"></div>
+                    
+                    <div class="no-vehicles" id="my-no-vehicles">
+                        <i class="fas fa-inbox"></i>
+                        <p>You don't have any vehicles listed for sale</p>
+                    </div>
+                </div>
+
+                <!-- Sell Vehicle Tab -->
+                <div class="tab-content" id="sell-tab">
+                    <div class="sell-info-card">
+                        <h2><i class="fas fa-info-circle"></i> How to Sell</h2>
+                        <p>Select a vehicle from your garage and set a competitive price. Buyers can make offers on your listing.</p>
+                        <div class="license-info">
+                            <i class="fas fa-id-card"></i>
+                            <span>Without license: <strong>1 listing</strong> | With license: <strong>10 listings</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="owned-vehicles-container">
+                        <h3><i class="fas fa-garage"></i> Your Vehicles</h3>
+                        <div class="vehicles-grid" id="owned-vehicles-grid"></div>
+                        
+                        <div class="no-vehicles" id="owned-no-vehicles">
+                            <i class="fas fa-car-crash"></i>
+                            <p>You don't own any vehicles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vehicle Detail Modal -->
+        <div class="modal" id="vehicle-detail-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-vehicle-name">Vehicle Details</h2>
+                    <span class="modal-close" id="modal-close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-vehicle-image-container">
+                        <img id="modal-vehicle-image" class="modal-vehicle-img" src="" alt="Vehicle">
+                        <div id="modal-image-fallback" class="modal-image-fallback" style="display:none;">
+                            <i class="fas fa-car"></i>
+                            <span>No Image Available</span>
+                        </div>
+                    </div>
+                    <div class="vehicle-detail-info">
+                        <div class="detail-row">
+                            <span><i class="fas fa-car"></i> Model:</span>
+                            <strong id="detail-model">-</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span><i class="fas fa-id-card"></i> Plate:</span>
+                            <strong id="detail-plate">-</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span><i class="fas fa-dollar-sign"></i> Asking Price:</span>
+                            <strong id="detail-price">-</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span><i class="fas fa-chart-line"></i> Market Value:</span>
+                            <strong id="detail-market-price">-</strong>
+                        </div>
+                        <div class="detail-row" id="detail-discount-row">
+                            <span><i class="fas fa-percentage"></i> Discount:</span>
+                            <strong id="detail-discount" class="discount-badge">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="offer-section">
+                        <h3>Make an Offer</h3>
+                        <div class="offer-input-group">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="offer-amount" placeholder="Enter your offer amount">
+                        </div>
+                        <div class="offer-buttons">
+                            <button class="btn secondary-btn" id="cancel-offer-btn">Cancel</button>
+                            <button class="btn primary-btn" id="submit-offer-btn">Submit Offer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sell Vehicle Modal -->
+        <div class="modal" id="sell-vehicle-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="sell-modal-vehicle-name">List Vehicle for Sale</h2>
+                    <span class="modal-close" id="sell-modal-close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="vehicle-detail-info">
+                        <div class="detail-row">
+                            <span><i class="fas fa-car"></i> Model:</span>
+                            <strong id="sell-detail-model">-</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span><i class="fas fa-id-card"></i> Plate:</span>
+                            <strong id="sell-detail-plate">-</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span><i class="fas fa-chart-line"></i> Original Price:</span>
+                            <strong id="sell-detail-market-price">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="sell-section">
+                        <h3>Set Your Price</h3>
+                        <div class="offer-input-group">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="sell-price-input" placeholder="Enter asking price">
+                        </div>
+                        <div class="price-suggestions">
+                            <button class="suggestion-btn" data-percent="90">90% Market</button>
+                            <button class="suggestion-btn" data-percent="75">75% Market</button>
+                            <button class="suggestion-btn" data-percent="50">50% Market</button>
+                        </div>
+                        <div class="offer-buttons">
+                            <button class="btn secondary-btn" id="cancel-sell-btn">Cancel</button>
+                            <button class="btn primary-btn" id="confirm-sell-btn">List for Sale</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offers Modal -->
+        <div class="modal" id="offers-modal">
+            <div class="modal-content large">
+                <div class="modal-header">
+                    <h2><i class="fas fa-handshake"></i> Offers for <span id="offers-vehicle-name"></span></h2>
+                    <span class="modal-close" id="offers-modal-close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="offers-list" id="offers-list"></div>
+                    
+                    <div class="no-offers" id="no-offers">
+                        <i class="fas fa-inbox"></i>
+                        <p>No offers yet for this vehicle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Price Modal -->
+        <div class="modal" id="edit-price-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Update Price</h2>
+                    <span class="modal-close" id="edit-price-modal-close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="vehicle-detail-info">
+                        <div class="detail-row">
+                            <span><i class="fas fa-dollar-sign"></i> Original Price:</span>
+                            <strong id="edit-original-price">-</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span><i class="fas fa-dollar-sign"></i> Current Price:</span>
+                            <strong id="edit-current-price">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="sell-section">
+                        <h3>New Price</h3>
+                        <div class="offer-input-group">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="edit-price-input" placeholder="Enter new price">
+                        </div>
+                        <div class="offer-buttons">
+                            <button class="btn secondary-btn" id="cancel-edit-price-btn">Cancel</button>
+                            <button class="btn primary-btn" id="confirm-edit-price-btn">Update Price</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="phone-container">
+    <div class="phone-frame">
+
+        <!-- Top bar -->
+        <div class="phone-top-bar">
+            <div class="phone-notch"></div>
+            <span class="phone-time" id="phone-time">12:00</span>
+            <div class="phone-battery">
+                <div class="battery-icon"><div class="battery-level"></div></div>
+            </div>
+        </div>
+
+        <!-- Screen -->
+        <div class="phone-screen">
+            <div class="screen-header">
+                <h2>📱 My Phone</h2>
+                <div class="subtitle">Quick Access</div>
+            </div>
+
+            <div class="app-grid" id="main-screen">
+                <button class="app-btn inventory" data-app="inventory">
+                    <div class="icon">🎒</div>
+                    <div class="btn-text">
+                        <span class="btn-label">Inventory</span>
+                        <span class="btn-desc">View your items</span>
+                    </div>
+                </button>
+
+                <button class="app-btn skills" data-app="skills">
+                    <div class="icon">🔧</div>
+                    <div class="btn-text">
+                        <span class="btn-label">Skills</span>
+                        <span class="btn-desc">Mechanic skill levels</span>
+                    </div>
+                </button>
+
+                <button class="app-btn business" data-app="business">
+                    <div class="icon">🏢</div>
+                    <div class="btn-text">
+                        <span class="btn-label">Businesses</span>
+                        <span class="btn-desc">My Businesses</span>
+                    </div>
+                </button>
+
+                <button class="app-btn taxi" data-app="taxi">
+                    <div class="icon">🚕</div>
+                    <div class="btn-text">
+                        <span class="btn-label">Taxi</span>
+                        <span class="btn-desc">Call a taxi ride</span>
+                    </div>
+                </button>
+
+                <button class="app-btn usedcars" data-app="usedcars">
+                    <div class="icon">🚗</div>
+                    <div class="btn-text">
+                        <span class="btn-label">Used Cars</span>
+                        <span class="btn-desc">Buy & sell vehicles</span>
+                    </div>
+                </button>
+
+                <button class="app-btn stocks" data-app="stocks">
+                    <div class="icon">📈</div>
+                    <div class="btn-text">
+                        <span class="btn-label">Stocks</span>
+                        <span class="btn-desc">Trade on the market</span>
+                    </div>
+                </button>
+
+                <button class="app-btn racing" data-app="racing">
+                    <div class="icon">🏁</div>
+                    <div class="btn-text">
+                        <span class="btn-label">Racing</span>
+                        <span class="btn-desc">Create & join races</span>
+                    </div>
+                </button>
+            </div>
+
+            <div class="skills-screen" id="skills-screen">
+                <div class="skills-header">
+                    <button class="back-btn" id="skills-back">←</button>
+                    <h3>Mechanic Skills</h3>
+                </div>
+                <div class="skills-list" id="skills-list"></div>
+            </div>
+
+            <div class="close-hint">Press F2 or ESC to close</div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="phone-bottom-bar">
+            <div class="home-indicator"></div>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Penalty</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: transparent;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        #death-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, rgba(30, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.97) 100%);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        #death-screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 20px rgba(200, 0, 0, 0.5), 0 0 40px rgba(200, 0, 0, 0.2); }
+            50% { text-shadow: 0 0 30px rgba(200, 0, 0, 0.8), 0 0 60px rgba(200, 0, 0, 0.4); }
+        }
+
+        .death-title {
+            font-size: 64px;
+            font-weight: 800;
+            color: #c0392b;
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            margin-bottom: 8px;
+            animation: pulse 3s ease-in-out infinite, slideUp 1s ease-out;
+        }
+
+        .death-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px 28px;
+            min-width: 160px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(192, 57, 43, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stat-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-value.money {
+            color: #2ecc71;
+        }
+
+        .stat-value.dirty {
+            color: #e67e22;
+        }
+
+        .stat-value.vehicles {
+            color: #3498db;
+        }
+
+        .stat-value.houses {
+            color: #9b59b6;
+        }
+
+        .stat-value.items {
+            color: #f39c12;
+        }
+
+        .stat-value.energy {
+            color: #e74c3c;
+        }
+
+        .stat-value.businesses {
+            color: #1abc9c;
+        }
+
+        .stat-value.licenses {
+            color: #e8c83a;
+        }
+
+        .licenses-list {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+        }
+
+        .message-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 500px;
+            line-height: 1.6;
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+
+        .restart-btn {
+            padding: 16px 50px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #c0392b 0%, #96281b 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+            animation: slideUp 1s ease-out 0.8s both;
+            outline: none;
+        }
+
+        .restart-btn:hover {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            transform: scale(1.05);
+            box-shadow: 0 4px 30px rgba(192, 57, 43, 0.4);
+        }
+
+        .restart-btn:active {
+            transform: scale(0.98);
+        }
+
+        .lost-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            animation: slideUp 1s ease-out 0.35s both;
+        }
+    </style>
+</head>
+<body>
+    <div id="death-screen">
+        <div class="death-title">YOU DIED</div>
+        <div class="death-subtitle">All progress has been lost</div>
+
+        <div class="lost-label">— What You Had —</div>
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">💵</div>
+                <div class="stat-label">Cash</div>
+                <div class="stat-value money" id="stat-cash">$0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-label">Dirty Money</div>
+                <div class="stat-value dirty" id="stat-dirty">$0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🚗</div>
+                <div class="stat-label">Vehicles</div>
+                <div class="stat-value vehicles" id="stat-vehicles">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏠</div>
+                <div class="stat-label">Houses</div>
+                <div class="stat-value houses" id="stat-houses">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎒</div>
+                <div class="stat-label">Items</div>
+                <div class="stat-value items" id="stat-items">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-label">Energy</div>
+                <div class="stat-value energy" id="stat-energy">0%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏢</div>
+                <div class="stat-label">Businesses</div>
+                <div class="stat-value businesses" id="stat-businesses">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📜</div>
+                <div class="stat-label">Licenses</div>
+                <div class="stat-value licenses" id="stat-licenses">0</div>
+                <div class="licenses-list" id="stat-licenses-list"></div>
+            </div>
+        </div>
+
+        <div class="message-text">
+            Your journey has come to an end. Everything you built — your money, your properties, your vehicles — is gone. But every end is a new beginning.
+        </div>
+
+        <button class="restart-btn" id="restart-btn" onclick="restartJourney()">Restart Journey</button>
+    </div>
+
+    <script>
+        function formatMoney(amount) {
+            return '$' + Number(amount || 0).toLocaleString();
+        }
+
+        window.addEventListener('message', function(event) {
+            const data = event.data;
+
+            if (data.action === 'showDeathScreen') {
+                const stats = data.stats || {};
+                document.getElementById('stat-cash').textContent = formatMoney(stats.cash);
+                document.getElementById('stat-dirty').textContent = formatMoney(stats.dirty);
+                document.getElementById('stat-vehicles').textContent = (stats.vehicles || 0).toString();
+                document.getElementById('stat-houses').textContent = (stats.houses || 0).toString();
+                document.getElementById('stat-items').textContent = (stats.totalItems || 0).toString();
+                document.getElementById('stat-energy').textContent = Math.round(stats.energy || 0) + '%';
+
+                // Businesses
+                document.getElementById('stat-businesses').textContent = (stats.businesses || 0).toString();
+
+                // Licenses
+                const licenses = stats.licenses || [];
+                document.getElementById('stat-licenses').textContent = licenses.length.toString();
+                const licensesList = document.getElementById('stat-licenses-list');
+                if (licenses.length > 0) {
+                    licensesList.textContent = licenses.map(l => l.charAt(0).toUpperCase() + l.slice(1)).join(', ');
+                } else {
+                    licensesList.textContent = 'None';
+                }
+
+                // Reset button state in case of repeat show
+                const btn = document.getElementById('restart-btn');
+                btn.disabled = false;
+                btn.textContent = 'Restart Journey';
+                btn.style.opacity = '1';
+                btn.style.cursor = 'pointer';
+
+                document.getElementById('death-screen').classList.add('active');
+            }
+
+            if (data.action === 'hideDeathScreen') {
+                document.getElementById('death-screen').classList.remove('active');
+            }
+        });
+
+        function restartJourney() {
+            // Disable button to prevent double-click
+            const btn = document.getElementById('restart-btn');
+            btn.disabled = true;
+            btn.textContent = 'Restarting...';
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'default';
+
+            fetch('https://my_deathpenalty/restartJourney', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({})
+            });
+        }
+    </script>
+</body>
+</html>

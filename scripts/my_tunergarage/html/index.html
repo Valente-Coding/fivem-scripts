@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Purchase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Feedback Message Banner (Hidden by default) -->
+    <div class="feedback-message" id="feedback-message" style="display: none;"></div>
+
+    <!-- Main Garage Container (Purchase View) -->
+    <div class="garage-container" id="garage-container">
+        <!-- Header -->
+        <div class="garage-header">
+            <h1 class="header-title" id="header-title">GARAGE PURCHASE</h1>
+            <button class="close-btn" id="close-btn" aria-label="Close">&#10005;</button>
+        </div>
+
+        <!-- Content -->
+        <div class="garage-content">
+            <!-- Wrench Icon -->
+            <div class="garage-icon">&#128295;</div>
+
+            <!-- Garage Name -->
+            <h2 class="garage-name" id="garage-name">Little Seoul Tuner Garage</h2>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="info-label">PROPERTY</span>
+                    <span class="info-value">Tuner Garage</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">STATUS</span>
+                    <span class="info-value" id="status-value">Available</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">PRICE</span>
+                    <span class="info-value price-value" id="price-value">$0</span>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Description -->
+            <p class="garage-description" id="garage-description">
+                Purchase this garage to become the proud owner of
+                <strong>Little Seoul Tuner Garage</strong>.
+            </p>
+
+            <!-- Confirm Button -->
+            <button class="confirm-btn" id="confirm-btn">PURCHASE</button>
+        </div>
+    </div>
+
+    <!-- Management Container (Owner View) -->
+    <div class="garage-container" id="management-container">
+        <!-- Header -->
+        <div class="garage-header">
+            <h1 class="header-title">GARAGE MANAGEMENT</h1>
+            <button class="close-btn" id="mgmt-close-btn" aria-label="Close">&#10005;</button>
+        </div>
+
+        <!-- Content -->
+        <div class="garage-content">
+            <!-- Wrench Icon -->
+            <div class="garage-icon">&#128295;</div>
+
+            <!-- Garage Name -->
+            <h2 class="garage-name" id="mgmt-garage-name">Little Seoul Tuner Garage</h2>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="info-label">MECHANIC</span>
+                    <span class="info-value" id="mgmt-worker-status">Not Hired</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">PENDING PROFIT</span>
+                    <span class="info-value profit-value" id="mgmt-profit-value">$0</span>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Description -->
+            <p class="garage-description" id="mgmt-description">
+                Hire a mechanic to work on cars and earn passive income.
+            </p>
+
+            <!-- Action Buttons -->
+            <button class="confirm-btn" id="hire-btn">HIRE MECHANIC — $10,000</button>
+            <button class="confirm-btn collect-btn" id="collect-btn" style="display: none;">COLLECT PROFIT</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

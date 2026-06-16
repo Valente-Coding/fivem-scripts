@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Overview Screen -->
+        <div id="business-overview" class="container">
+            <div class="header">
+                <h1>Your Business Empire</h1>
+                <span class="total-income">Total Income: <span id="total-income">$0</span>/5min</span>
+                <button class="close-btn" id="close-overview">&times;</button>
+            </div>
+            <div class="businesses-list" id="businesses-list"></div>
+        </div>
+
+        <!-- Purchase Screen -->
+        <div id="purchase-screen" class="container">
+            <div class="header">
+                <h1>Purchase Business</h1>
+                <button class="close-btn" id="close-purchase">&times;</button>
+            </div>
+            <div class="business-info">
+                <h2 id="purchase-business-name">Business Name</h2>
+                <p id="purchase-business-description">Business Description</p>
+                <div class="business-price">
+                    <span>Price: $<span id="purchase-business-price">0</span></span>
+                </div>
+                <div class="business-type">
+                    <span>Type: <span id="purchase-business-type">Retail</span></span>
+                </div>
+                <div class="business-income">
+                    <span>Base Income: $<span id="purchase-business-income">0</span>/5min</span>
+                </div>
+                <div class="payment-methods">
+                    <button id="purchase-cash" class="payment-btn purchase-btn-full">Purchase with Cash</button>
+                </div>
+                <div id="purchase-error" class="error-message"></div>
+            </div>
+        </div>
+
+        <!-- Management Screen -->
+        <div id="management-screen" class="container">
+            <div class="header">
+                <h1>Business Management</h1>
+                <button class="close-btn" id="close-management">&times;</button>
+            </div>
+            <div class="business-info">
+                <h2 id="management-business-name">Business Name</h2>
+                <p id="management-business-description">Business Description</p>
+
+                <div class="info-row">
+                    <div class="info-item">
+                        <span class="info-label">Type:</span>
+                        <span id="management-business-type">Retail</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Value:</span>
+                        <span>$<span id="management-business-price">0</span></span>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-item">
+                        <span class="info-label">Income:</span>
+                        <span>$<span id="management-business-income">0</span>/5min</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Payment:</span>
+                        <span>Paid directly to cash</span>
+                    </div>
+                </div>
+
+                <div class="dirty-money-section">
+                    <h3>Money Laundering</h3>
+                    <div class="dirty-money-info">
+                        <div class="info-row">
+                            <div class="info-item">
+                                <span class="info-label">Dirty Money:</span>
+                                <span>$<span id="dirty-money-amount">0</span></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Normal Income:</span>
+                                <span>$<span id="normal-income">0</span>/5min</span>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-item dirty-money-boost">
+                                <span id="dirty-money-boost-info">No active boost</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dirty-money-deposit">
+                        <input type="number" id="dirty-money-deposit-amount" placeholder="Amount">
+                        <button id="deposit-dirty-money-btn" class="deposit-btn">Deposit Dirty Money</button>
+                        <button id="withdraw-dirty-money-btn" class="withdraw-btn">Withdraw Dirty Money</button>
+                    </div>
+                    <div id="dirty-money-error" class="error-message"></div>
+                </div>
+
+                <div class="upgrades-section">
+                    <h3>Upgrades</h3>
+                    <div class="upgrades-list">
+                        <div class="upgrade-item">
+                            <div class="upgrade-info">
+                                <span class="upgrade-name">Staff</span>
+                                <div class="upgrade-level"><span>Level: <span id="staff-level">0</span>/<span id="staff-max-level">5</span></span></div>
+                                <div class="upgrade-bonus"><span>+<span id="staff-bonus">0</span>% income per level</span></div>
+                                <div class="upgrade-cost"><span>Cost: $<span id="staff-cost">0</span></span></div>
+                            </div>
+                            <div class="upgrade-buttons">
+                                <button class="upgrade-btn" data-type="staff">Upgrade</button>
+                            </div>
+                        </div>
+
+                        <div class="upgrade-item">
+                            <div class="upgrade-info">
+                                <span class="upgrade-name">Size</span>
+                                <div class="upgrade-level"><span>Level: <span id="size-level">0</span>/<span id="size-max-level">5</span></span></div>
+                                <div class="upgrade-bonus"><span>+<span id="size-bonus">0</span>% income per level</span></div>
+                                <div class="upgrade-cost"><span>Cost: $<span id="size-cost">0</span></span></div>
+                            </div>
+                            <div class="upgrade-buttons">
+                                <button class="upgrade-btn" data-type="size">Upgrade</button>
+                            </div>
+                        </div>
+
+                        <div class="upgrade-item">
+                            <div class="upgrade-info">
+                                <span class="upgrade-name">Logistics</span>
+                                <div class="upgrade-level"><span>Level: <span id="logistics-level">0</span>/<span id="logistics-max-level">5</span></span></div>
+                                <div class="upgrade-bonus"><span>+<span id="logistics-bonus">0</span>% income per level</span></div>
+                                <div class="upgrade-cost"><span>Cost: $<span id="logistics-cost">0</span></span></div>
+                            </div>
+                            <div class="upgrade-buttons">
+                                <button class="upgrade-btn" data-type="logistics">Upgrade</button>
+                            </div>
+                        </div>
+
+                        <div class="upgrade-item">
+                            <div class="upgrade-info">
+                                <span class="upgrade-name">Security</span>
+                                <div class="upgrade-level"><span>Level: <span id="security-level">0</span>/<span id="security-max-level">5</span></span></div>
+                                <div class="upgrade-bonus"><span>+<span id="security-bonus">0</span>% income per level</span></div>
+                                <div class="upgrade-cost"><span>Cost: $<span id="security-cost">0</span></span></div>
+                            </div>
+                            <div class="upgrade-buttons">
+                                <button class="upgrade-btn" data-type="security">Upgrade</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sell-section">
+                    <h3>Sell Business</h3>
+                    <div class="sell-info">
+                        <span>Sell price: $<span id="sell-price">0</span> (includes business funds)</span>
+                    </div>
+                    <button id="sell-business-btn" class="sell-btn">Sell Business</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warehouse Screen -->
+        <div id="warehouse-screen" class="container">
+            <div class="header">
+                <h1>Warehouse Distribution</h1>
+                <button class="close-btn" id="close-warehouse">&times;</button>
+            </div>
+            <div class="business-info">
+                <h2 id="warehouse-business-name">Money Distribution Warehouse</h2>
+                <p id="warehouse-business-description">Automatically distribute dirty money across all your businesses</p>
+
+                <div class="warehouse-section">
+                    <h3>Distribution Settings</h3>
+                    <div class="warehouse-input-group">
+                        <label for="distribution-cycles">Number of Cycles:</label>
+                        <input type="number" id="distribution-cycles" placeholder="Enter cycles (min 1)" min="1">
+                    </div>
+
+                    <div class="warehouse-preview" id="warehouse-preview" style="display: none;">
+                        <h4>Distribution Preview</h4>
+                        <div class="preview-table-container">
+                            <table class="preview-table">
+                                <thead>
+                                    <tr>
+                                        <th>Business</th>
+                                        <th>Income/Cycle</th>
+                                        <th>Amount/Cycle</th>
+                                        <th>Total Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="preview-table-body"></tbody>
+                            </table>
+                        </div>
+
+                        <div class="warehouse-total">
+                            <div class="total-label">Total Dirty Money Required:</div>
+                            <div class="total-amount">$<span id="total-required">0</span></div>
+                        </div>
+
+                        <button id="confirm-distribution-btn" class="confirm-btn">Confirm Distribution</button>
+                    </div>
+
+                    <div class="warehouse-actions">
+                        <button id="withdraw-all-dirty-money-btn" class="withdraw-all-btn">Withdraw All Dirty Money</button>
+                    </div>
+
+                    <div id="warehouse-error" class="error-message"></div>
+                    <div id="warehouse-loading" class="loading-message" style="display: none;">Calculating...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
