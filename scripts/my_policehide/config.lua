@@ -1,0 +1,12 @@
+Config = {}
+
+Config.CheckInterval = 1000
+Config.ShowNotifications = true
+
+Config.HideAtLevel = {
+    [1] = true,
+    [2] = true,
+    [3] = true,
+    [4] = true,
+    [5] = true
+}

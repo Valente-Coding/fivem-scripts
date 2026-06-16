@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#time-container {
+    position: fixed;
+    top: calc(50% - 100px);
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    pointer-events: none;
+}
+
+#day-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#day-count-display {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#day-separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#day-display {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#time-display {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="housing-container">
+        <div class="housing-panel">
+            <div class="header">
+                <h1 id="house-name">Property Details</h1>
+                <div class="close-btn" id="close-btn">&times;</div>
+            </div>
+
+            <div class="content">
+                <!-- Main info section -->
+                <div class="property-info">
+                    <div class="info-card">
+                        <h2>Property Information</h2>
+                        <div class="info-row">
+                            <span>Location:</span>
+                            <span id="house-label">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Current Value:</span>
+                            <span id="house-price">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Base Value:</span>
+                            <span id="house-base-price">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Owner:</span>
+                            <span id="house-owner">-</span>
+                        </div>
+                        <div class="info-row" id="rent-status-row">
+                            <span>Rental Status:</span>
+                            <span id="house-rent-status">-</span>
+                        </div>
+                        <div class="info-row" id="rent-price-row">
+                            <span>Rent Price:</span>
+                            <span id="house-rent-price">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Market value history graph -->
+                    <div class="info-card">
+                        <h2>Market Value History</h2>
+                        <div class="chart-container">
+                            <canvas id="valueHistoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error display -->
+                <div class="error-message" id="error-message" style="display: none;"></div>
+
+                <!-- Action panels -->
+                <div class="action-panels">
+                    <!-- Buy house panel -->
+                    <div class="action-panel" id="buy-panel">
+                        <h2>Purchase Property</h2>
+                        <p>This property is available for purchase at <span id="buy-price"></span></p>
+                        <div class="action-buttons">
+                            <button class="btn primary-btn" id="buy-cash-btn">Buy with Cash</button>
+                        </div>
+                    </div>
+
+                    <!-- Owner panel -->
+                    <div class="action-panel" id="owner-panel">
+                        <h2>Manage Your Property</h2>
+                        <div class="info-row">
+                            <span>Total Earnings:</span>
+                            <span id="total-earnings">-</span>
+                        </div>
+                        <div class="toggle-row">
+                            <span>Rental Status:</span>
+                            <label class="switch">
+                                <input type="checkbox" id="rent-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn rest-btn" id="rest-btn" style="display: none;">Rest &amp; Replenish Energy</button>
+                            <button class="btn storage-btn" id="storage-toggle-btn">House Storage</button>
+                            <button class="btn danger-btn" id="sell-btn">Sell Property</button>
+                        </div>
+                    </div>
+
+                    <!-- Rent house panel (future feature) -->
+                    <div class="action-panel" id="rent-panel">
+                        <h2>Rent Property</h2>
+                        <p>This property is available for rent at <span id="rent-price"></span> per hour</p>
+                        <div class="action-buttons">
+                            <button class="btn primary-btn" id="rent-btn">Rent Property</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House Storage Panel -->
+                <div class="storage-section" id="storage-section" style="display: none;">
+                    <div class="storage-header">
+                        <h2>House Storage</h2>
+                        <div class="storage-tabs">
+                            <button class="storage-tab active" data-tab="items">Items</button>
+                            <button class="storage-tab" data-tab="money">Money</button>
+                        </div>
+                    </div>
+
+                    <!-- Items Tab -->
+                    <div class="storage-tab-content" id="storage-items-tab">
+                        <div class="storage-columns">
+                            <!-- Player Inventory -->
+                            <div class="storage-column">
+                                <h3>Your Inventory</h3>
+                                <div class="storage-item-list" id="player-items-list">
+                                    <div class="storage-empty">No items in inventory</div>
+                                </div>
+                            </div>
+                            <!-- Transfer arrows -->
+                            <div class="storage-arrows">
+                                <span>&#8644;</span>
+                            </div>
+                            <!-- House Storage -->
+                            <div class="storage-column">
+                                <h3>House Storage <span id="storage-count">(0/50)</span></h3>
+                                <div class="storage-item-list" id="house-items-list">
+                                    <div class="storage-empty">No items stored</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Money Tab -->
+                    <div class="storage-tab-content" id="storage-money-tab" style="display: none;">
+                        <div class="storage-columns">
+                            <!-- Player Money -->
+                            <div class="storage-column">
+                                <h3>Your Wallet</h3>
+                                <div class="money-row">
+                                    <span class="money-label">Clean Cash:</span>
+                                    <span class="money-value" id="player-cash">$0</span>
+                                </div>
+                                <div class="money-row">
+                                    <span class="money-label">Dirty Money:</span>
+                                    <span class="money-value dirty" id="player-dirty">$0</span>
+                                </div>
+                                <div class="money-transfer">
+                                    <input type="number" id="deposit-cash-amount" placeholder="Amount" min="1">
+                                    <button class="btn small-btn primary-btn" id="deposit-cash-btn">Deposit Cash &#8594;</button>
+                                </div>
+                                <div class="money-transfer">
+                                    <input type="number" id="deposit-dirty-amount" placeholder="Amount" min="1">
+                                    <button class="btn small-btn dirty-btn" id="deposit-dirty-btn">Deposit Dirty &#8594;</button>
+                                </div>
+                            </div>
+                            <!-- Transfer arrows -->
+                            <div class="storage-arrows">
+                                <span>&#8644;</span>
+                            </div>
+                            <!-- House Money -->
+                            <div class="storage-column">
+                                <h3>House Safe</h3>
+                                <div class="money-row">
+                                    <span class="money-label">Clean Cash:</span>
+                                    <span class="money-value" id="house-cash">$0</span>
+                                </div>
+                                <div class="money-row">
+                                    <span class="money-label">Dirty Money:</span>
+                                    <span class="money-value dirty" id="house-dirty">$0</span>
+                                </div>
+                                <div class="money-transfer">
+                                    <input type="number" id="withdraw-cash-amount" placeholder="Amount" min="1">
+                                    <button class="btn small-btn primary-btn" id="withdraw-cash-btn">&#8592; Withdraw Cash</button>
+                                </div>
+                                <div class="money-transfer">
+                                    <input type="number" id="withdraw-dirty-amount" placeholder="Amount" min="1">
+                                    <button class="btn small-btn dirty-btn" id="withdraw-dirty-btn">&#8592; Withdraw Dirty</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js for value history -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

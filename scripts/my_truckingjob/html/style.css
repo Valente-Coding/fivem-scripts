@@ -1,0 +1,54 @@
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body { background: transparent; overflow: hidden; }
+.hidden { display: none !important; }
+
+#job-menu {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    background: rgba(15, 15, 25, 0.95);
+    border: 1px solid rgba(50, 150, 255, 0.3);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 0 30px rgba(50, 150, 255, 0.15);
+}
+.menu-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, rgba(30, 80, 160, 0.3), rgba(20, 50, 100, 0.2));
+    border-bottom: 1px solid rgba(50, 150, 255, 0.2);
+}
+.menu-header h1 { color: #42a5f5; font-size: 20px; letter-spacing: 2px; }
+.close-btn { color: #888; font-size: 24px; cursor: pointer; transition: color 0.2s; }
+.close-btn:hover { color: #ff4444; }
+.menu-body { padding: 20px; }
+.stat-row {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #ccc; font-size: 14px;
+}
+.stat-row span:last-child { color: #42a5f5; font-weight: 600; }
+.start-btn {
+    width: 100%; padding: 12px; margin-top: 18px;
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    color: white; border: none; border-radius: 6px;
+    font-size: 15px; font-weight: 700; letter-spacing: 2px;
+    cursor: pointer; transition: all 0.2s;
+}
+.start-btn:hover { background: linear-gradient(135deg, #1976d2, #1565c0); transform: translateY(-1px); }
+.start-btn:disabled {
+    background: linear-gradient(135deg, #555, #333);
+    color: #999; cursor: not-allowed; transform: none;
+}
+
+#job-hud {
+    position: absolute; top: 20px; right: 20px; width: 200px;
+    background: rgba(10, 10, 20, 0.85);
+    border: 1px solid rgba(50, 150, 255, 0.25);
+    border-radius: 8px; padding: 12px 15px;
+}
+.hud-title { color: #42a5f5; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; text-align: center; }
+.hud-row { display: flex; justify-content: space-between; padding: 4px 0; color: #aaa; font-size: 12px; }
+.hud-row span:last-child { color: #eee; font-weight: 600; }

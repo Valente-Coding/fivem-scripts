@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealership Purchase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Feedback Message Banner (Hidden by default) -->
+    <div class="feedback-message" id="feedback-message" style="display: none;"></div>
+
+    <!-- Main Dealership Container -->
+    <div class="dealership-container" id="dealership-container">
+        <!-- Header -->
+        <div class="dealership-header">
+            <h1 class="header-title" id="header-title">DEALERSHIP PURCHASE</h1>
+            <button class="close-btn" id="close-btn" aria-label="Close">&#10005;</button>
+        </div>
+
+        <!-- Content -->
+        <div class="dealership-content">
+            <!-- Car Icon -->
+            <div class="dealership-icon">&#128663;</div>
+
+            <!-- Dealership Name -->
+            <h2 class="dealership-name" id="dealership-name">Premium Deluxe Motorsport</h2>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="info-label">PROPERTY</span>
+                    <span class="info-value">Car Dealership</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">STATUS</span>
+                    <span class="info-value" id="status-value">Available</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">PRICE</span>
+                    <span class="info-value price-value" id="price-value">$0</span>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Description -->
+            <p class="dealership-description" id="dealership-description">
+                Purchase this dealership to become the proud owner of
+                <strong>Premium Deluxe Motorsport</strong>.
+            </p>
+
+            <!-- Confirm Button -->
+            <button class="confirm-btn" id="confirm-btn">PURCHASE</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

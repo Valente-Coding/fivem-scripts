@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motel Check-In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Feedback Message Banner (Hidden by default) -->
+    <div class="feedback-message" id="feedback-message" style="display: none;"></div>
+
+    <!-- Main Motel Container -->
+    <div class="motel-container" id="motel-container">
+        <!-- Header -->
+        <div class="motel-header">
+            <h1 class="header-title" id="header-title">MOTEL CHECK-IN</h1>
+            <button class="close-btn" id="close-btn" aria-label="Close">&#10005;</button>
+        </div>
+
+        <!-- Content -->
+        <div class="motel-content">
+            <!-- Moon/Night Icon -->
+            <div class="motel-icon">&#9790;</div>
+
+            <!-- Motel Name -->
+            <h2 class="motel-name" id="motel-name">Motel Name</h2>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <div class="info-row">
+                    <span class="info-label">SERVICE</span>
+                    <span class="info-value">Room for the night</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">WAKE UP</span>
+                    <span class="info-value">8:00 AM</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">PRICE</span>
+                    <span class="info-value price-value" id="price-value">$0</span>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Description -->
+            <p class="motel-description">
+                Time will fast forward to <strong>8:00 AM</strong>.
+                You will be teleported to your room.
+            </p>
+
+            <!-- Confirm Button -->
+            <button class="confirm-btn" id="confirm-btn">CHECK IN</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

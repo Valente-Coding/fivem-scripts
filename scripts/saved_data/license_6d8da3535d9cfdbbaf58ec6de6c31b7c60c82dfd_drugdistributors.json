@@ -1,0 +1,17 @@
+{
+    "inventory": {
+        "large_meth": {
+            "amount": 0,
+            "profit": 0
+        },
+        "large_weed": {
+            "amount": 0,
+            "profit": 0
+        },
+        "large_cocaine": {
+            "amount": 0,
+            "profit": 0
+        }
+    },
+    "distributorCount": 0
+}

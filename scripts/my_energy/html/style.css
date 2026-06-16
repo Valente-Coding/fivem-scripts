@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: transparent;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#energy-container {
+    position: fixed;
+    top: calc(50% - 20px);
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    pointer-events: none;
+}
+
+.energy-label {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+}
+
+.energy-bar-bg {
+    width: 160px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.energy-bar-fill {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: rgba(74, 222, 128, 0.95);
+    transition: width 1s linear, background-color 0.5s ease;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+}
+
+/* Color states based on data attribute */
+.energy-bar-fill[data-level="high"] {
+    background: rgba(74, 222, 128, 0.95);
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.4);
+}
+
+.energy-bar-fill[data-level="medium"] {
+    background: rgba(250, 204, 21, 0.95);
+    box-shadow: 0 0 6px rgba(250, 204, 21, 0.4);
+}
+
+.energy-bar-fill[data-level="low"] {
+    background: rgba(239, 68, 68, 0.95);
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
+}
+
+/* Pulse animation when energy is critically low */
+@keyframes pulse-low {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.energy-bar-fill[data-level="low"] {
+    animation: pulse-low 1.5s ease-in-out infinite;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taxi</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app" class="hidden">
+        <div class="panel">
+            <div class="title" id="title">Taxi Service</div>
+            <div class="row"><span id="distance-label">Distance</span><span id="distance-value">0 m</span></div>
+            <div class="row"><span id="fare-label">Fare</span><span id="fare-value">$0</span></div>
+            <div class="row"><span id="wait-label">Estimated Wait</span><span id="wait-value">0s</span></div>
+            <div class="buttons">
+                <button id="confirm">Confirm Taxi</button>
+                <button id="cancel" class="ghost">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

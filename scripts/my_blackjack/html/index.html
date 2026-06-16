@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="blackjack-container" style="display:none;">
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <span class="top-bar-icon">🃏</span>
+                <span class="top-bar-title">Blackjack</span>
+            </div>
+            <div class="top-bar-center">
+                <div id="phase-label">WAITING</div>
+                <div id="timer-bar">
+                    <div id="timer-fill"></div>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <button id="btn-leave" onclick="doAction('leaveTable')">LEAVE</button>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div class="game-area">
+            <!-- Dealer -->
+            <div id="dealer-area">
+                <div class="area-label">DEALER <span id="dealer-value"></span></div>
+                <div id="dealer-cards" class="card-row"></div>
+            </div>
+
+            <!-- Players -->
+            <div id="players-area"></div>
+        </div>
+
+        <!-- Bottom Bar (actions / betting) -->
+        <div class="bottom-bar">
+            <div class="balance-display">💵 <span id="player-balance">$0</span></div>
+
+            <div class="bottom-bar-center">
+            <div id="actions-bar" style="display:none;">
+                <button id="btn-hit" class="action-btn" onclick="doAction('hit')">HIT</button>
+                <button id="btn-stand" class="action-btn" onclick="doAction('stand')">STAND</button>
+                <button id="btn-double" class="action-btn" onclick="doAction('doubleDown')">DOUBLE DOWN</button>
+            </div>
+
+            <div id="betting-panel" style="display:none;">
+                <div class="bet-title">PLACE YOUR BET</div>
+                <div class="bet-chips">
+                    <button class="chip-btn" onclick="addBet(50)">$50</button>
+                    <button class="chip-btn" onclick="addBet(100)">$100</button>
+                    <button class="chip-btn" onclick="addBet(250)">$250</button>
+                    <button class="chip-btn" onclick="addBet(500)">$500</button>
+                    <button class="chip-btn" onclick="addBet(1000)">$1K</button>
+                    <button class="chip-btn" onclick="addBet(5000)">$5K</button>
+                </div>
+                <div class="bet-display">
+                    <span id="current-bet">$0</span>
+                    <button class="bet-clear-btn" onclick="clearBet()">CLEAR</button>
+                </div>
+                <button class="bet-confirm-btn" onclick="confirmBet()">CONFIRM BET</button>
+            </div>
+
+            <div id="waiting-msg" class="waiting-msg" style="display:none;">Waiting for next round...</div>
+            </div>
+        </div>
+
+        <span class="close-hint">Press ESC to leave</span>
+    </div>
+
+    <!-- Notification (outside container so it's not clipped) -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

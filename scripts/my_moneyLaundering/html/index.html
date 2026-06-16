@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Laundering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Feedback Message Banner -->
+    <div class="feedback-message" id="feedback-message" style="display: none;"></div>
+
+    <!-- Main Container -->
+    <div class="launder-container" id="launder-container">
+        <!-- Header -->
+        <div class="launder-header">
+            <h1 class="header-title">MONEY LAUNDERING</h1>
+            <button class="close-btn" id="close-btn" aria-label="Close">✕</button>
+        </div>
+
+        <!-- Content -->
+        <div class="launder-content">
+            <!-- Icon -->
+            <div class="launder-icon">💰</div>
+
+            <p class="launder-subtitle">The boss offers to clean your dirty money&hellip;</p>
+
+            <!-- Transaction Details -->
+            <div class="transaction-details">
+                <div class="detail-row">
+                    <span class="detail-label">YOUR DIRTY MONEY</span>
+                    <span class="detail-value dirty" id="dirty-amount">$0</span>
+                </div>
+                <div class="detail-divider"></div>
+                <div class="detail-row">
+                    <span class="detail-label">BOSS CUT</span>
+                    <span class="detail-value cut" id="boss-cut">70%</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">YOUR CUT</span>
+                    <span class="detail-value rate" id="your-rate">30%</span>
+                </div>
+                <div class="detail-divider highlight"></div>
+                <div class="detail-row payout-row">
+                    <span class="detail-label payout-label">CLEAN CASH YOU RECEIVE</span>
+                    <span class="detail-value payout" id="clean-amount">$0</span>
+                </div>
+            </div>
+
+            <!-- Warning -->
+            <div class="launder-warning" id="launder-warning" style="display: none;">
+                <span>⚠️ You don't have enough dirty money to launder.</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-launder" id="btn-launder">LAUNDER MONEY</button>
+                <button class="btn btn-cancel" id="btn-cancel">CANCEL DEAL</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

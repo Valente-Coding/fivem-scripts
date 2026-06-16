@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Repair Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="repair-menu" class="container hidden">
+        <div class="header">
+            <div class="title">
+                <i class="fas fa-wrench"></i> Auto Repair Shop
+            </div>
+            <div class="close-btn" id="close-menu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="content">
+            <div class="vehicle-info">
+                <div class="vehicle-damage">
+                    <div class="damage-title">Vehicle Damage</div>
+                    <div class="damage-meter">
+                        <div class="damage-bar">
+                            <div class="damage-fill" id="damage-percentage"></div>
+                        </div>
+                        <div class="damage-text"><span id="damage-text">0</span>% Damaged</div>
+                    </div>
+                </div>
+                <div class="repair-price" id="repair-section">
+                    <div class="price-label">Repair Cost:</div>
+                    <div class="price-value">$<span id="repair-cost">0</span></div>
+                </div>
+            </div>
+            <div class="vehicle-info" id="oil-section">
+                <div class="oil-level">
+                    <div class="damage-title"><i class="fas fa-oil-can"></i> Oil Level</div>
+                    <div class="damage-meter">
+                        <div class="damage-bar">
+                            <div class="oil-fill" id="oil-percentage"></div>
+                        </div>
+                        <div class="damage-text"><span id="oil-text">100</span>%</div>
+                    </div>
+                </div>
+                <div class="repair-price">
+                    <div class="price-label">Oil Change:</div>
+                    <div class="price-value">$<span id="oil-cost">0</span></div>
+                </div>
+            </div>
+            <div class="vehicle-info dropoff-section hidden" id="dropoff-section">
+                <div class="dropoff-notice">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Engine oil depleted — leave vehicle for full repair</span>
+                </div>
+                <div class="repair-price">
+                    <div class="price-label">Drop-off Cost:</div>
+                    <div class="price-value">$<span id="dropoff-cost">0</span></div>
+                </div>
+                <div class="dropoff-time">
+                    <i class="fas fa-clock"></i> Ready in <span id="dropoff-time">5</span> minutes
+                </div>
+            </div>
+            <div class="payment-options">
+                <div class="payment-title">Services</div>
+                <div class="payment-btns">
+                    <button class="payment-btn bank-btn" id="confirm-repair">
+                        <i class="fas fa-wrench"></i>
+                        <span>Repair</span>
+                    </button>
+                    <button class="payment-btn oil-btn" id="confirm-oil-change">
+                        <i class="fas fa-oil-can"></i>
+                        <span>Oil Change</span>
+                    </button>
+                    <button class="payment-btn dropoff-btn hidden" id="confirm-dropoff">
+                        <i class="fas fa-clock"></i>
+                        <span>Leave for Repair</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

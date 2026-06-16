@@ -1,0 +1,588 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+#stock-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #0a0a0a;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: #1a1a1a;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.header-title h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.header-title .subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.header-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    background: #151515;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.close-btn {
+    background: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    color: #888888;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn:hover {
+    background: #2a2a2a;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: #1a1a1a;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.refresh-btn {
+    background: #151515;
+    border: 1px solid #3a3a3a;
+    color: #888888;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+    background: #2a2a2a;
+    color: #ffffff;
+    transform: rotate(180deg);
+}
+
+.sector-group {
+    margin-bottom: 20px;
+}
+
+.sector-header {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sector-header:hover {
+    transform: translateX(5px);
+}
+
+.sector-arrow {
+    transition: transform 0.3s ease;
+}
+
+.sector-group.collapsed .sector-arrow {
+    transform: rotate(-90deg);
+}
+
+.company-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.sector-group.collapsed .company-list {
+    display: none;
+}
+
+.company-card {
+    background: #151515;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.company-card:hover {
+    background: #202020;
+    border-color: #3a3a3a;
+    transform: translateY(-2px);
+}
+
+.company-card.selected {
+    background: #2a2a2a;
+    border-color: #4a4a4a;
+}
+
+.company-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.company-ticker {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.company-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.company-name {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+}
+
+.company-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dividend-badge {
+    background: #202020;
+    border: 1px solid #3a3a3a;
+    color: #888888;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.price-change {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.price-change.positive {
+    color: #cccccc;
+}
+
+.price-change.negative {
+    color: #666666;
+}
+
+/* Center Panel */
+.center-panel {
+    flex: 1;
+    background: #1a1a1a;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.placeholder-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.company-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.company-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.company-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.company-meta {
+    display: flex;
+    gap: 10px;
+}
+
+.ticker {
+    background: #202020;
+    border: 1px solid #3a3a3a;
+    color: #cccccc;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sector-tag {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid;
+}
+
+.price-info {
+    text-align: right;
+}
+
+.current-price {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.chart-container {
+    height: 300px;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.trading-section {
+    background: #151515;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.trading-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-item span:first-child {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.info-item span:last-child {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+.trading-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+}
+
+.input-group input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.input-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.input-group input[type="number"] {
+    background: #0f0f0f;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 12px;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+}
+
+.input-group input[type="number"]:focus {
+    outline: none;
+    border-color: #4a4a4a;
+}
+
+.total-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+
+.total-cost span:last-child {
+    color: #ffffff;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.buy-btn, .sell-btn {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid;
+}
+
+.buy-btn {
+    background: #2a2a2a;
+    border-color: #4a4a4a;
+    color: #ffffff;
+}
+
+.buy-btn:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+    transform: translateY(-2px);
+}
+
+.sell-btn {
+    background: #151515;
+    border-color: #3a3a3a;
+    color: #888888;
+}
+
+.sell-btn:hover {
+    background: #3a3a3a;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Right Panel */
+.right-panel {
+    width: 450px;
+    background: #1a1a1a;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.right-panel h2 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.performance-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.metric-card {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background: #151515;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+}
+
+.metric-icon {
+    font-size: 32px;
+}
+
+.metric-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.metric-value {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.portfolio-table-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.portfolio-table thead {
+    background: #202020;
+}
+
+.portfolio-table th {
+    padding: 12px 8px;
+    text-align: left;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.portfolio-table td {
+    padding: 12px 8px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.empty-portfolio td {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    padding: 30px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4a4a4a;
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Station</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            user-select: none;
+        }
+
+        #healing-container {
+            display: none;
+            width: 340px;
+            padding: 24px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            font-size: 20px;
+            color: #4CAF50;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+        .health-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        .health-bar-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .health-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #f44336, #4CAF50);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .slider-section {
+            margin-bottom: 20px;
+        }
+
+        .slider-section label {
+            display: block;
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 8px;
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #fff;
+        }
+
+        .slider-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+            min-width: 45px;
+            text-align: right;
+        }
+
+        .cost-display {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(255, 215, 0, 0.08);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-heal {
+            background: #4CAF50;
+            color: #fff;
+        }
+
+        .btn-heal:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+
+        .btn-full {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .btn-full:hover {
+            background: #1e88e5;
+            transform: translateY(-1px);
+        }
+
+        .btn-close {
+            background: rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+
+        .btn-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="healing-container">
+        <div class="header">
+            <h2>&#9769; Healing Station</h2>
+            <p>$100 per 1% health restored</p>
+        </div>
+
+        <div class="health-info">
+            <span>Current Health: <strong id="current-health">100%</strong></span>
+            <span>Missing: <strong id="missing-health">0%</strong></span>
+        </div>
+
+        <div class="health-bar-container">
+            <div class="health-bar" id="health-bar" style="width: 100%"></div>
+        </div>
+
+        <div class="slider-section">
+            <label>Choose how much to heal:</label>
+            <div class="slider-row">
+                <input type="range" id="heal-slider" min="1" max="100" value="50">
+                <span class="slider-value" id="heal-value">50%</span>
+            </div>
+        </div>
+
+        <div class="cost-display">
+            Cost: $<span id="heal-cost">5000</span>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-heal" id="btn-heal">Heal</button>
+            <button class="btn btn-full" id="btn-full">Heal Full</button>
+            <button class="btn btn-close" id="btn-close">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let missingPercent = 0;
+        let costPerPercent = 100;
+
+        const container = document.getElementById('healing-container');
+        const slider = document.getElementById('heal-slider');
+        const healValue = document.getElementById('heal-value');
+        const healCost = document.getElementById('heal-cost');
+        const currentHealthEl = document.getElementById('current-health');
+        const missingHealthEl = document.getElementById('missing-health');
+        const healthBar = document.getElementById('health-bar');
+
+        function updateDisplay() {
+            const val = parseInt(slider.value);
+            healValue.textContent = val + '%';
+            healCost.textContent = (val * costPerPercent).toLocaleString();
+        }
+
+        function setHealthInfo(missing) {
+            const current = 100 - missing;
+            currentHealthEl.textContent = current + '%';
+            missingHealthEl.textContent = missing + '%';
+            healthBar.style.width = current + '%';
+            slider.max = missing;
+            slider.value = Math.min(parseInt(slider.value), missing);
+            if (slider.value < 1 && missing > 0) slider.value = 1;
+            updateDisplay();
+        }
+
+        slider.addEventListener('input', updateDisplay);
+
+        document.getElementById('btn-heal').addEventListener('click', function() {
+            const val = parseInt(slider.value);
+            if (val > 0) {
+                fetch(`https://${GetParentResourceName()}/heal`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ percent: val })
+                });
+            }
+        });
+
+        document.getElementById('btn-full').addEventListener('click', function() {
+            if (missingPercent > 0) {
+                fetch(`https://${GetParentResourceName()}/heal`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ percent: missingPercent })
+                });
+            }
+        });
+
+        document.getElementById('btn-close').addEventListener('click', function() {
+            fetch(`https://${GetParentResourceName()}/close`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({})
+            });
+        });
+
+        // Escape key to close
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                fetch(`https://${GetParentResourceName()}/close`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+            }
+        });
+
+        window.addEventListener('message', function(event) {
+            const data = event.data;
+
+            if (data.action === 'open') {
+                missingPercent = data.missingPercent || 0;
+                costPerPercent = data.costPerPercent || 100;
+                setHealthInfo(missingPercent);
+                container.style.display = 'block';
+            }
+
+            if (data.action === 'close') {
+                container.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

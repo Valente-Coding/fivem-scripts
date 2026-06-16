@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Flipper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Contract Selection UI -->
+    <div id="contractUI" class="ui-panel" style="display: none;">
+        <div class="panel-container">
+            <div class="panel-header">
+                <h1>Vehicle Contracts</h1>
+                <p class="subtitle">Choose a tier to steal a vehicle</p>
+            </div>
+            
+            <div class="active-contract-section" id="activeContractSection" style="display: none;">
+                <div class="active-contract-info">
+                    <h3>Active Contract</h3>
+                    <p id="activeContractDetails"></p>
+                    <div id="activeContractTimer" class="timer"></div>
+                    <button class="btn btn-cancel" id="cancelContractBtn">
+                        Cancel Contract (50% Refund: <span id="refundAmount">$0</span>)
+                    </button>
+                </div>
+            </div>
+
+            <div class="tiers-grid" id="tiersGrid"></div>
+            <button class="btn btn-close" id="closeContractUI">Close</button>
+        </div>
+    </div>
+
+    <!-- Payment Type Selection UI -->
+    <div id="paymentUI" class="ui-panel" style="display: none;">
+        <div class="panel-container payment-container">
+            <div class="panel-header">
+                <h1>Select Payment Method</h1>
+                <p class="subtitle" id="paymentSubtitle">Choose how to pay for this contract</p>
+            </div>
+
+            <div class="payment-info">
+                <h3 id="selectedTierName">Tier Name</h3>
+                <div class="info-row">
+                    <span>Contract Fee:</span>
+                    <span id="contractFee">$0</span>
+                </div>
+            </div>
+
+            <div class="payment-options">
+                <div class="payment-card payment-cash" id="paymentCash">
+                    <div class="payment-icon">&#128176;</div>
+                    <h3>Cash</h3>
+                    <p class="payment-desc">Pay with cash money</p>
+                    <div class="payment-balance">
+                        Balance: <span id="cashBalance">$0</span>
+                    </div>
+                </div>
+
+                <div class="payment-card payment-dirty" id="paymentDirty">
+                    <div class="payment-icon">&#128176;</div>
+                    <h3>Dirty Money</h3>
+                    <p class="payment-desc">Pay with dirty money</p>
+                    <div class="payment-balance">
+                        Balance: <span id="dirtyMoneyBalance">$0</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-close" id="closePaymentUI">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Lockpicking Minigame UI -->
+    <div id="lockpickUI" class="ui-panel lockpick-panel" style="display: none;">
+        <div class="lockpick-container">
+            <div class="lockpick-header">
+                <h2>Lockpicking</h2>
+                <div class="stage-counter">
+                    Stage <span id="currentStage">1</span> / <span id="totalStages">3</span>
+                </div>
+            </div>
+
+            <div class="lockpick-game">
+                <div class="lockpick-bar" id="lockpickBar">
+                    <div class="success-zone" id="successZone"></div>
+                    <div class="indicator" id="indicator"></div>
+                </div>
+            </div>
+
+            <div class="lockpick-feedback" id="lockpickFeedback">
+                <span class="feedback-text" id="feedbackText"></span>
+            </div>
+
+            <div class="lockpick-instructions">
+                <p>Click when the indicator is in the <span class="highlight-green">green zone</span></p>
+                <p class="warning">Failing will alert the police!</p>
+                <p class="escape-hint">Press <span class="highlight-escape">ESC</span> to cancel (vehicle stays locked)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Choice UI -->
+    <div id="deliveryUI" class="ui-panel" style="display: none;">
+        <div class="panel-container delivery-container">
+            <div class="panel-header">
+                <h1>Delivery Complete</h1>
+                <p class="subtitle">Choose what to do with the vehicle</p>
+            </div>
+
+            <div class="vehicle-info">
+                <h3 id="vehicleName">Vehicle Name</h3>
+                <div class="info-row">
+                    <span>Base Value:</span>
+                    <span id="baseValue">$0</span>
+                </div>
+                <div class="info-row">
+                    <span>Condition:</span>
+                    <span id="vehicleCondition" class="condition-good">100%</span>
+                </div>
+            </div>
+
+            <div class="delivery-options">
+                <div class="option-card option-keep">
+                    <h3>Keep Vehicle</h3>
+                    <div class="option-details">
+                        <p>Register this vehicle to your name</p>
+                        <div class="price-tag">
+                            Fee (Cash): <span id="keepFee">$0</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-keep" id="keepVehicleBtn">Keep Vehicle</button>
+                </div>
+
+                <div class="option-card option-sell">
+                    <h3>Sell Vehicle</h3>
+                    <div class="option-details">
+                        <p>Receive dirty money for the stolen vehicle</p>
+                        <div class="price-tag price-earn">
+                            Payout: <span id="sellPayout">$0</span>
+                        </div>
+                        <p class="condition-note" id="conditionNote"></p>
+                    </div>
+                    <button class="btn btn-sell" id="sellVehicleBtn">Sell Vehicle</button>
+                </div>
+            </div>
+
+            <button class="btn btn-close" id="closeDeliveryUI">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

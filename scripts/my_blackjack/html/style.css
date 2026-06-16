@@ -1,0 +1,533 @@
+/* ============================================================
+   my_blackjack | style.css
+   Phone-style dark theme blackjack UI
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+}
+
+/* ── Main Container ── */
+#blackjack-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ── Top Bar ── */
+.top-bar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #2a2a2a;
+    flex-shrink: 0;
+}
+
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-bar-icon {
+    font-size: 20px;
+}
+
+.top-bar-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #e0e0e0;
+}
+
+.top-bar-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+#phase-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4ade80;
+}
+
+#timer-bar {
+    width: 180px;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#timer-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #4ade80, #22d3ee);
+    border-radius: 2px;
+    transition: width 1s linear;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+}
+
+#btn-leave {
+    padding: 6px 16px;
+    border: 1px solid rgba(255,82,82,0.3);
+    border-radius: 10px;
+    background: rgba(255,82,82,0.1);
+    color: #ff6b6b;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+#btn-leave:hover {
+    background: rgba(255,82,82,0.25);
+    border-color: #ff5252;
+}
+
+/* ── Game Area ── */
+.game-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 40px;
+    gap: 16px;
+    overflow: hidden;
+}
+
+/* ── Dealer Section ── */
+#dealer-area {
+    text-align: center;
+    padding: 12px 0;
+}
+
+.area-label {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.area-label span {
+    color: #fbbf24;
+    font-weight: 700;
+}
+
+.card-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    min-height: 200px;
+    align-items: center;
+}
+
+.card {
+    width: 130px;
+    height: 182px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    transition: transform 0.25s ease;
+    object-fit: contain;
+    background: transparent;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-back {
+    width: 130px;
+    height: 182px;
+    border-radius: 12px;
+    background: #1a1a1a;
+    border: 2px solid #2a2a2a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back::after {
+    content: '♠';
+    font-size: 36px;
+    color: rgba(255,255,255,0.12);
+}
+
+/* ── Players Section ── */
+#players-area {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 8px 0;
+    flex: 1;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.player-slot {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 16px 18px;
+    min-width: 200px;
+    max-width: 260px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+}
+
+.player-slot.active-turn {
+    border-color: #4ade80;
+    background: #1a2a1a;
+}
+
+.player-slot.is-me {
+    border-color: #3b82f6;
+    background: #1a1a2a;
+}
+
+.player-slot.active-turn.is-me {
+    border-color: #4ade80;
+    background: #1a2a1a;
+}
+
+.player-name {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+    color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-name.is-me {
+    color: #60a5fa;
+}
+
+.player-bet {
+    font-size: 14px;
+    color: #fbbf24;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.player-cards {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.player-cards .card {
+    width: 82px;
+    height: 115px;
+    border-radius: 8px;
+}
+
+.player-value {
+    font-size: 26px;
+    font-weight: 900;
+    color: #e0e0e0;
+}
+
+.player-value.bust {
+    color: #f87171;
+}
+
+.player-value.blackjack {
+    color: #fbbf24;
+}
+
+.player-status {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 3px;
+    color: rgba(255,255,255,0.35);
+}
+
+.player-status.winner {
+    color: #4ade80;
+}
+
+.player-status.loser {
+    color: #f87171;
+}
+
+/* ── Bottom Bar ── */
+.bottom-bar {
+    flex-shrink: 0;
+    padding: 16px 40px 20px;
+    background: #1a1a1a;
+    border-top: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+    gap: 30px;
+}
+
+.bottom-bar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.balance-display {
+    font-size: 22px;
+    font-weight: 700;
+    color: #4ade80;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* ── Action Buttons ── */
+#actions-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+#btn-hit {
+    background: linear-gradient(135deg, #2d6a4f, #40916c);
+    color: #fff;
+}
+
+#btn-stand {
+    background: linear-gradient(135deg, #b7410e, #e85d26);
+    color: #fff;
+}
+
+#btn-double {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #fff;
+}
+
+.action-btn:hover {
+    transform: scale(1.04);
+    filter: brightness(1.15);
+}
+
+.action-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Betting Panel ── */
+#betting-panel {
+    text-align: center;
+    width: 100%;
+}
+
+.bet-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.bet-chips {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.chip-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(251,191,36,0.3);
+    background: #1a1a1a;
+    color: #fbbf24;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.chip-btn:hover {
+    transform: scale(1.12);
+    border-color: #fbbf24;
+    box-shadow: 0 4px 16px rgba(251,191,36,0.15);
+}
+
+.chip-btn:active {
+    transform: scale(0.95);
+}
+
+.bet-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+#current-bet {
+    font-size: 30px;
+    font-weight: 900;
+    color: #fbbf24;
+}
+
+.bet-clear-btn {
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.5);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+.bet-clear-btn:hover {
+    background: rgba(248,113,113,0.15);
+    border-color: rgba(248,113,113,0.3);
+    color: #f87171;
+}
+
+.bet-confirm-btn {
+    padding: 11px 36px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #2d6a4f, #40916c);
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bet-confirm-btn:hover {
+    transform: scale(1.04);
+    filter: brightness(1.15);
+}
+
+.bet-confirm-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Waiting Message ── */
+.waiting-msg {
+    color: #555;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ── Notification ── */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #e0e0e0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    max-width: 280px;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+/* ── Animations ── */
+@keyframes dealCard {
+    from { opacity: 0; transform: translateY(-20px) scale(0.85); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card-deal-animate {
+    animation: dealCard 0.35s ease-out;
+}
+
+@keyframes pulse-border {
+    0%, 100% { border-color: rgba(74,222,128,0.4); }
+    50%      { border-color: rgba(74,222,128,0.8); }
+}
+
+.player-slot.active-turn {
+    animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+/* ── Close Hint ── */
+.close-hint {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.2);
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}

@@ -1,0 +1,1142 @@
+[
+    {
+        "coords": {
+            "x": 372.796,
+            "y": 428.327,
+            "z": 144.685
+        },
+        "name": "NorthConkerAvenue2045",
+        "total_earnings": 0,
+        "label": "2045 North Conker Avenue",
+        "price": 1500000,
+        "id": 1,
+        "rented": 0,
+        "value_history": [
+            1500000,
+            1524000,
+            1531000
+        ],
+        "market_value": 1531000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -936.363,
+            "y": -379.165,
+            "z": 37.961
+        },
+        "name": "RichardMajesticApt2",
+        "total_earnings": 0,
+        "label": "Richard Majestic, Apt 2",
+        "price": 1700000,
+        "id": 2,
+        "rented": 0,
+        "value_history": [
+            1700000,
+            1727000,
+            1735000
+        ],
+        "market_value": 1735000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 346.964,
+            "y": 440.8,
+            "z": 146.702
+        },
+        "name": "NorthConkerAvenue2044",
+        "total_earnings": 0,
+        "label": "2044 North Conker Avenue",
+        "price": 1500000,
+        "id": 3,
+        "rented": 0,
+        "value_history": [
+            1500000,
+            1524000,
+            1531000
+        ],
+        "market_value": 1531000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -176.003,
+            "y": 502.696,
+            "z": 136.421
+        },
+        "name": "WildOatsDrive",
+        "total_earnings": 0,
+        "label": "3655 Wild Oats Drive",
+        "price": 1500000,
+        "id": 4,
+        "rented": 0,
+        "value_history": [
+            1500000,
+            1524000,
+            1531000
+        ],
+        "market_value": 1531000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -686.554,
+            "y": 596.58,
+            "z": 142.641
+        },
+        "name": "HillcrestAvenue2862",
+        "total_earnings": 0,
+        "label": "2862 Hillcrest Avenue",
+        "price": 1500000,
+        "id": 5,
+        "rented": 0,
+        "value_history": [
+            1500000,
+            1524000,
+            1531000
+        ],
+        "market_value": 1531000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -1294.433,
+            "y": 454.955,
+            "z": 96.462
+        },
+        "name": "MadWayneThunder",
+        "total_earnings": 0,
+        "label": "2113 Mad Wayne Thunder",
+        "price": 1500000,
+        "id": 6,
+        "rented": 0,
+        "value_history": [
+            1500000,
+            1524000,
+            1531000
+        ],
+        "market_value": 1531000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -853.346,
+            "y": 696.678,
+            "z": 147.782
+        },
+        "name": "HillcrestAvenue2874",
+        "total_earnings": 0,
+        "label": "2874 Hillcrest Avenue",
+        "price": 1500000,
+        "id": 7,
+        "rented": 0,
+        "value_history": [
+            1500000,
+            1524000,
+            1531000
+        ],
+        "market_value": 1531000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -752.82,
+            "y": 620.494,
+            "z": 141.588
+        },
+        "name": "HillcrestAvenue2868",
+        "total_earnings": 0,
+        "label": "2868 Hillcrest Avenue",
+        "price": 1500000,
+        "id": 8,
+        "rented": 0,
+        "value_history": [
+            1500000,
+            1524000,
+            1531000
+        ],
+        "market_value": 1531000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -618.299,
+            "y": 37.025,
+            "z": 42.58
+        },
+        "name": "TinselTowersApt12",
+        "total_earnings": 0,
+        "label": "Tinsel Towers, Apt 42",
+        "price": 1700000,
+        "id": 9,
+        "rented": 0,
+        "value_history": [
+            1700000,
+            1727000,
+            1735000
+        ],
+        "market_value": 1735000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 997.0684,
+            "y": -729.3065,
+            "z": 57.8157
+        },
+        "name": "House_997_0684",
+        "total_earnings": 0,
+        "label": "House at Galaxy Boulevard",
+        "price": 60000,
+        "id": 10,
+        "rented": 0,
+        "value_history": [
+            60000,
+            61000,
+            61000
+        ],
+        "market_value": 61000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 970.8563,
+            "y": -701.0776,
+            "z": 58.482
+        },
+        "name": "House_970_8563",
+        "total_earnings": 0,
+        "label": "House at Vinewood Hills",
+        "price": 80000,
+        "id": 11,
+        "rented": 0,
+        "value_history": [
+            80000,
+            81000,
+            82000
+        ],
+        "market_value": 82000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 943.5446,
+            "y": -653.5113,
+            "z": 58.4287
+        },
+        "name": "House_943_5446",
+        "total_earnings": 0,
+        "label": "House at Vinewood Heights",
+        "price": 70000,
+        "id": 12,
+        "rented": 0,
+        "value_history": [
+            70000,
+            71000,
+            71000
+        ],
+        "market_value": 71000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 886.7933,
+            "y": -608.103,
+            "z": 58.4451
+        },
+        "name": "House_886_7933",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 70000,
+        "id": 13,
+        "rented": 0,
+        "value_history": [
+            70000,
+            71000,
+            71000
+        ],
+        "market_value": 71000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 844.1935,
+            "y": -562.9882,
+            "z": 57.8339
+        },
+        "name": "House_844_1935",
+        "total_earnings": 0,
+        "label": "House at El Burro Heights",
+        "price": 75000,
+        "id": 14,
+        "rented": 0,
+        "value_history": [
+            75000,
+            76000,
+            77000
+        ],
+        "market_value": 77000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 315.9535,
+            "y": 501.3657,
+            "z": 153.1798
+        },
+        "name": "House_315_9535",
+        "total_earnings": 0,
+        "label": "House at Rockford Hills",
+        "price": 250000,
+        "id": 15,
+        "rented": 0,
+        "value_history": [
+            250000,
+            254000,
+            255000
+        ],
+        "market_value": 255000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 119.3956,
+            "y": 494.2162,
+            "z": 147.3429
+        },
+        "name": "House_119_3956",
+        "total_earnings": 0,
+        "label": "House at Alta",
+        "price": 180000,
+        "id": 16,
+        "rented": 0,
+        "value_history": [
+            180000,
+            183000,
+            184000
+        ],
+        "market_value": 184000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -230.4202,
+            "y": 488.3306,
+            "z": 128.768
+        },
+        "name": "House_230_4202",
+        "total_earnings": 0,
+        "label": "House at Vinewood",
+        "price": 200000,
+        "id": 17,
+        "rented": 0,
+        "value_history": [
+            200000,
+            203000,
+            204000
+        ],
+        "market_value": 204000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -312.178,
+            "y": 474.7194,
+            "z": 111.8241
+        },
+        "name": "House_312_1780",
+        "total_earnings": 0,
+        "label": "House at Paleto Bay",
+        "price": 350000,
+        "id": 18,
+        "rented": 0,
+        "value_history": [
+            350000,
+            356000,
+            357000
+        ],
+        "market_value": 357000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -355.5244,
+            "y": 469.881,
+            "z": 112.4893
+        },
+        "name": "House_355_5244",
+        "total_earnings": 0,
+        "label": "House at Chumash",
+        "price": 500000,
+        "id": 19,
+        "rented": 0,
+        "value_history": [
+            500000,
+            508000,
+            510000
+        ],
+        "market_value": 510000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -297.9718,
+            "y": 380.2416,
+            "z": 112.0956
+        },
+        "name": "House_297_9718",
+        "total_earnings": 0,
+        "label": "House at North Chumash",
+        "price": 260000,
+        "id": 20,
+        "rented": 0,
+        "value_history": [
+            260000,
+            264000,
+            265000
+        ],
+        "market_value": 265000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -371.8848,
+            "y": 343.7934,
+            "z": 109.9427
+        },
+        "name": "House_371_8848",
+        "total_earnings": 0,
+        "label": "House at Great Chaparral",
+        "price": 300000,
+        "id": 21,
+        "rented": 0,
+        "value_history": [
+            300000,
+            305000,
+            306000
+        ],
+        "market_value": 306000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -520.5744,
+            "y": 594.1549,
+            "z": 120.8365
+        },
+        "name": "House_520_5744",
+        "total_earnings": 0,
+        "label": "House at Harmony",
+        "price": 250000,
+        "id": 22,
+        "rented": 0,
+        "value_history": [
+            250000,
+            254000,
+            255000
+        ],
+        "market_value": 255000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -339.9535,
+            "y": 625.8067,
+            "z": 171.3567
+        },
+        "name": "House_339_9535",
+        "total_earnings": 0,
+        "label": "House at Grand Senora Desert",
+        "price": 700000,
+        "id": 23,
+        "rented": 0,
+        "value_history": [
+            700000,
+            711000,
+            715000
+        ],
+        "market_value": 715000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -700.7934,
+            "y": 647.3782,
+            "z": 155.1753
+        },
+        "name": "House_700_7934",
+        "total_earnings": 0,
+        "label": "House at Vinewood Hills Estate",
+        "price": 1100000,
+        "id": 24,
+        "rented": 0,
+        "value_history": [
+            1100000,
+            1117000,
+            1123000
+        ],
+        "market_value": 1123000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -1496.0587,
+            "y": 437.2909,
+            "z": 112.4979
+        },
+        "name": "House_1496_0587",
+        "total_earnings": 0,
+        "label": "House at Palomino Highlands",
+        "price": 450000,
+        "id": 25,
+        "rented": 0,
+        "value_history": [
+            450000,
+            457000,
+            459000
+        ],
+        "market_value": 459000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -1667.2349,
+            "y": -441.5058,
+            "z": 40.3557
+        },
+        "name": "House_1667_2349",
+        "total_earnings": 0,
+        "label": "House at Pacific Bluffs",
+        "price": 650000,
+        "id": 26,
+        "rented": 0,
+        "value_history": [
+            650000,
+            660000,
+            664000
+        ],
+        "market_value": 664000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -1490.5225,
+            "y": -658.6225,
+            "z": 29.0251
+        },
+        "name": "House_1490_5225",
+        "total_earnings": 0,
+        "label": "House at Banham Canyon",
+        "price": 10000,
+        "id": 27,
+        "rented": 0,
+        "value_history": [
+            10000,
+            10000,
+            10000
+        ],
+        "market_value": 10000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -1459.0474,
+            "y": -659.1971,
+            "z": 29.583
+        },
+        "name": "House_1459_0474",
+        "total_earnings": 0,
+        "label": "House at Morningwood",
+        "price": 10000,
+        "id": 28,
+        "rented": 0,
+        "value_history": [
+            10000,
+            10000,
+            10000
+        ],
+        "market_value": 10000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 279.8749,
+            "y": -1993.6436,
+            "z": 20.8038
+        },
+        "name": "House_279_8749",
+        "total_earnings": 0,
+        "label": "House at Downtown Vinewood",
+        "price": 30000,
+        "id": 29,
+        "rented": 0,
+        "value_history": [
+            30000,
+            30000,
+            31000
+        ],
+        "market_value": 31000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 291.3394,
+            "y": -1980.5107,
+            "z": 21.6005
+        },
+        "name": "House_291_3394",
+        "total_earnings": 0,
+        "label": "House at Strawberry",
+        "price": 25000,
+        "id": 30,
+        "rented": 0,
+        "value_history": [
+            25000,
+            25000,
+            26000
+        ],
+        "market_value": 26000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 324.0533,
+            "y": -1937.4679,
+            "z": 25.019
+        },
+        "name": "House_324_0533",
+        "total_earnings": 0,
+        "label": "House at Cypress Flats",
+        "price": 45000,
+        "id": 31,
+        "rented": 0,
+        "value_history": [
+            45000,
+            46000,
+            46000
+        ],
+        "market_value": 46000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 398.4351,
+            "y": -1789.3022,
+            "z": 29.1593
+        },
+        "name": "House_398_4351",
+        "total_earnings": 0,
+        "label": "House at La Mesa",
+        "price": 15000,
+        "id": 32,
+        "rented": 0,
+        "value_history": [
+            15000,
+            15000,
+            15000
+        ],
+        "market_value": 15000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 332.8919,
+            "y": -1741.0638,
+            "z": 29.7306
+        },
+        "name": "House_332_8919",
+        "total_earnings": 0,
+        "label": "House at Davis",
+        "price": 45000,
+        "id": 33,
+        "rented": 0,
+        "value_history": [
+            45000,
+            46000,
+            46000
+        ],
+        "market_value": 46000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -14.1733,
+            "y": -1441.87,
+            "z": 31.1015
+        },
+        "name": "House_14_1733",
+        "total_earnings": 0,
+        "label": "House at Mission Row",
+        "price": 50000,
+        "id": 34,
+        "rented": 0,
+        "value_history": [
+            50000,
+            51000,
+            51000
+        ],
+        "market_value": 51000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -216.5681,
+            "y": -1674.2344,
+            "z": 34.4632
+        },
+        "name": "House_216_5681",
+        "total_earnings": 0,
+        "label": "House at La Puerta",
+        "price": 12000,
+        "id": 35,
+        "rented": 0,
+        "value_history": [
+            12000,
+            12000,
+            12000
+        ],
+        "market_value": 12000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -33.9881,
+            "y": -1847.2666,
+            "z": 26.1936
+        },
+        "name": "House_33_9881",
+        "total_earnings": 0,
+        "label": "House at Little Seoul",
+        "price": 30000,
+        "id": 36,
+        "rented": 0,
+        "value_history": [
+            30000,
+            30000,
+            31000
+        ],
+        "market_value": 31000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 130.4368,
+            "y": -1853.6016,
+            "z": 25.2348
+        },
+        "name": "House_130_4368",
+        "total_earnings": 0,
+        "label": "House at Vespucci Beach",
+        "price": 25000,
+        "id": 37,
+        "rented": 0,
+        "value_history": [
+            25000,
+            25000,
+            26000
+        ],
+        "market_value": 26000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 222.9197,
+            "y": -1702.7635,
+            "z": 29.695
+        },
+        "name": "House_222_9197",
+        "total_earnings": 0,
+        "label": "House at Rancho",
+        "price": 25000,
+        "id": 38,
+        "rented": 0,
+        "value_history": [
+            25000,
+            25000,
+            26000
+        ],
+        "market_value": 26000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 151.5635,
+            "y": -72.6534,
+            "z": 71.8602
+        },
+        "name": "House_151_5635",
+        "total_earnings": 0,
+        "label": "House at Chamberlain Hills",
+        "price": 20000,
+        "id": 39,
+        "rented": 0,
+        "value_history": [
+            20000,
+            20000,
+            20000
+        ],
+        "market_value": 20000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 5.8142,
+            "y": -9.2191,
+            "z": 70.1162
+        },
+        "name": "House_5_8142",
+        "total_earnings": 0,
+        "label": "House at Burton",
+        "price": 35000,
+        "id": 40,
+        "rented": 0,
+        "value_history": [
+            35000,
+            36000,
+            36000
+        ],
+        "market_value": 36000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 930.7355,
+            "y": -245.1552,
+            "z": 69.0028
+        },
+        "name": "House_930_7355",
+        "total_earnings": 0,
+        "label": "House at Downtown",
+        "price": 40000,
+        "id": 41,
+        "rented": 0,
+        "value_history": [
+            40000,
+            41000,
+            41000
+        ],
+        "market_value": 41000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1258.9746,
+            "y": -1761.5757,
+            "z": 49.6583
+        },
+        "name": "House_1258_9746",
+        "total_earnings": 0,
+        "label": "House at East Vinewood",
+        "price": 30000,
+        "id": 42,
+        "rented": 0,
+        "value_history": [
+            30000,
+            30000,
+            31000
+        ],
+        "market_value": 31000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1230.7291,
+            "y": -1590.9597,
+            "z": 53.7661
+        },
+        "name": "House_1230_7291",
+        "total_earnings": 0,
+        "label": "House at El Burro Heights",
+        "price": 35000,
+        "id": 43,
+        "rented": 0,
+        "value_history": [
+            35000,
+            36000,
+            36000
+        ],
+        "market_value": 36000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -830.6603,
+            "y": 115.0213,
+            "z": 55.8298
+        },
+        "name": "House_830_6603",
+        "total_earnings": 0,
+        "label": "House at Richman",
+        "price": 650000,
+        "id": 44,
+        "rented": 0,
+        "value_history": [
+            650000,
+            660000,
+            664000
+        ],
+        "market_value": 664000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -998.0771,
+            "y": 157.7113,
+            "z": 62.3191
+        },
+        "name": "House_998_0771",
+        "total_earnings": 0,
+        "label": "House at West Vinewood",
+        "price": 550000,
+        "id": 45,
+        "rented": 0,
+        "value_history": [
+            550000,
+            559000,
+            561000
+        ],
+        "market_value": 561000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -902.5498,
+            "y": 191.4798,
+            "z": 69.4461
+        },
+        "name": "House_902_5498",
+        "total_earnings": 0,
+        "label": "House at Vinewood Hills",
+        "price": 750000,
+        "id": 46,
+        "rented": 0,
+        "value_history": [
+            750000,
+            762000,
+            766000
+        ],
+        "market_value": 766000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -1570.6803,
+            "y": 22.7236,
+            "z": 59.5539
+        },
+        "name": "House_1570_6803",
+        "total_earnings": 0,
+        "label": "House at Pacific Bluffs",
+        "price": 550000,
+        "id": 47,
+        "rented": 0,
+        "value_history": [
+            550000,
+            559000,
+            561000
+        ],
+        "market_value": 561000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -1467.4543,
+            "y": 35.182,
+            "z": 54.5448
+        },
+        "name": "House_1467_4543",
+        "total_earnings": 0,
+        "label": "House at Rockford Hills",
+        "price": 750000,
+        "id": 48,
+        "rented": 0,
+        "value_history": [
+            750000,
+            762000,
+            766000
+        ],
+        "market_value": 766000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": -929.8655,
+            "y": 18.8081,
+            "z": 48.1326
+        },
+        "name": "House_929_8655",
+        "total_earnings": 0,
+        "label": "House at Richman",
+        "price": 560000,
+        "id": 49,
+        "rented": 0,
+        "value_history": [
+            560000,
+            569000,
+            572000
+        ],
+        "market_value": 572000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 903.5582,
+            "y": -615.9465,
+            "z": 58.4533
+        },
+        "name": "House_1117_0",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 140000,
+        "id": 50,
+        "rented": 0,
+        "value_history": [
+            140000,
+            142000,
+            143000
+        ],
+        "market_value": 143000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1347.8577,
+            "y": -548.079,
+            "z": 73.8916
+        },
+        "name": "House_1347_8577",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 140000,
+        "id": 51,
+        "rented": 0,
+        "value_history": [
+            140000,
+            142000,
+            143000
+        ],
+        "market_value": 143000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1388.3865,
+            "y": -569.8406,
+            "z": 74.4965
+        },
+        "name": "House_1388_3865",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 140000,
+        "id": 52,
+        "rented": 0,
+        "value_history": [
+            140000,
+            142000,
+            143000
+        ],
+        "market_value": 143000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1385.4622,
+            "y": -592.9026,
+            "z": 74.4854
+        },
+        "name": "House_1385_4622",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 140000,
+        "id": 53,
+        "rented": 0,
+        "value_history": [
+            140000,
+            142000,
+            143000
+        ],
+        "market_value": 143000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1367.2782,
+            "y": -605.7484,
+            "z": 74.7109
+        },
+        "name": "House_1367_2782",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 140000,
+        "id": 54,
+        "rented": 0,
+        "value_history": [
+            140000,
+            142000,
+            143000
+        ],
+        "market_value": 143000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1323.7416,
+            "y": -582.3893,
+            "z": 73.2464
+        },
+        "name": "House_1323_7416",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 140000,
+        "id": 55,
+        "rented": 0,
+        "value_history": [
+            140000,
+            142000,
+            143000
+        ],
+        "market_value": 143000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1372.6526,
+            "y": -555.5178,
+            "z": 74.6858
+        },
+        "name": "House_1372_6526",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 150000,
+        "id": 56,
+        "rented": 0,
+        "value_history": [
+            150000,
+            152000,
+            153000
+        ],
+        "market_value": 153000,
+        "last_rent_time": 0
+    },
+    {
+        "coords": {
+            "x": 1341.8867,
+            "y": -597.5314,
+            "z": 74.7009
+        },
+        "name": "House_1341_8867",
+        "total_earnings": 0,
+        "label": "House at Mirror Park",
+        "price": 150000,
+        "id": 57,
+        "rented": 0,
+        "value_history": [
+            150000,
+            152000,
+            153000
+        ],
+        "market_value": 153000,
+        "last_rent_time": 0
+    }
+]

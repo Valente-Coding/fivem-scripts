@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="stock-container" style="display: none;">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-title">
+                <h1>STOCK MARKET</h1>
+                <p class="subtitle">Los Santos Exchange</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Cash Balance</div>
+                    <div class="stat-value" id="cash-balance">$0.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Portfolio Value</div>
+                    <div class="stat-value" id="portfolio-value">$0.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total ROI</div>
+                    <div class="stat-value" id="total-roi">0.00%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Dividend Income</div>
+                    <div class="stat-value" id="dividend-income">$0.00</div>
+                </div>
+            </div>
+            <button class="close-btn" id="close-btn">&times;</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Sidebar - Company List -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Companies</h2>
+                    <div class="refresh-btn" id="refresh-btn">&#x27F3;</div>
+                </div>
+                <div class="sector-list" id="sector-list"></div>
+            </div>
+
+            <!-- Center Panel - Chart and Trading -->
+            <div class="center-panel">
+                <div class="company-details" id="company-details" style="display: none;">
+                    <div class="company-header">
+                        <div class="company-info">
+                            <h2 id="selected-company-name">Select a company</h2>
+                            <div class="company-meta">
+                                <span class="ticker" id="selected-ticker">---</span>
+                                <span class="sector-tag" id="selected-sector">---</span>
+                            </div>
+                        </div>
+                        <div class="price-info">
+                            <div class="current-price" id="selected-price">$0.00</div>
+                            <div class="price-change" id="selected-change">+0.00%</div>
+                        </div>
+                    </div>
+
+                    <!-- Price Chart -->
+                    <div class="chart-container">
+                        <canvas id="price-chart"></canvas>
+                    </div>
+
+                    <!-- Trading Form -->
+                    <div class="trading-section">
+                        <div class="trading-info">
+                            <div class="info-item">
+                                <span>Dividend/Share:</span>
+                                <span id="dividend-value">$0.00</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Available Shares:</span>
+                                <span id="available-shares">0</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Shares Owned:</span>
+                                <span id="owned-shares">0</span>
+                            </div>
+                        </div>
+
+                        <div class="trading-controls">
+                            <div class="input-group">
+                                <label for="share-quantity">Number of Shares</label>
+                                <input type="range" id="share-slider" min="1" max="100" value="1">
+                                <input type="number" id="share-quantity" min="1" value="1">
+                            </div>
+                            <div class="total-cost">
+                                <span>Total Cost:</span>
+                                <span id="total-cost">$0.00</span>
+                            </div>
+                            <div class="button-group">
+                                <button class="buy-btn" id="buy-btn">BUY SHARES</button>
+                                <button class="sell-btn" id="sell-btn">SELL SHARES</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placeholder" id="placeholder">
+                    <div class="placeholder-icon">&#x1F4C8;</div>
+                    <p>Select a company to view details and trade shares</p>
+                </div>
+            </div>
+
+            <!-- Right Panel - Portfolio -->
+            <div class="right-panel">
+                <h2>Your Portfolio</h2>
+
+                <div class="performance-metrics">
+                    <div class="metric-card">
+                        <div class="metric-icon best">&#x1F3C6;</div>
+                        <div class="metric-info">
+                            <div class="metric-label">Best Performer</div>
+                            <div class="metric-value" id="best-performer">---</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon worst">&#x1F4C9;</div>
+                        <div class="metric-info">
+                            <div class="metric-label">Worst Performer</div>
+                            <div class="metric-value" id="worst-performer">---</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-table-container">
+                    <table class="portfolio-table" id="portfolio-table">
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Shares</th>
+                                <th>Avg Cost</th>
+                                <th>Value</th>
+                                <th>P/L %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="portfolio-tbody">
+                            <tr class="empty-portfolio">
+                                <td colspan="5">No investments yet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

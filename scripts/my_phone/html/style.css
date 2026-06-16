@@ -1,0 +1,337 @@
+/* ── Reset ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* ── Container ── */
+#phone-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    z-index: 99999;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50%) translateX(120%); opacity: 0; }
+    to   { transform: translateY(-50%) translateX(0);    opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateY(-50%) translateX(0);    opacity: 1; }
+    to   { transform: translateY(-50%) translateX(120%); opacity: 0; }
+}
+
+#phone-container.closing {
+    animation: slideOut 0.25s ease-in forwards;
+}
+
+/* ── Phone Frame ── */
+.phone-frame {
+    width: 340px;
+    height: 640px;
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border-radius: 38px;
+    border: 4px solid #333;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ── Top Bar (notch area) ── */
+.phone-top-bar {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(0,0,0,0.3);
+}
+
+.phone-notch {
+    width: 80px;
+    height: 20px;
+    background: #111;
+    border-radius: 0 0 12px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.phone-time {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    position: absolute;
+    left: 18px;
+    top: 16px;
+}
+
+.phone-battery {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.battery-icon {
+    width: 22px;
+    height: 11px;
+    border: 1.5px solid #aaa;
+    border-radius: 2px;
+    position: relative;
+}
+
+.battery-icon::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 2px;
+    width: 2px;
+    height: 5px;
+    background: #aaa;
+    border-radius: 0 1px 1px 0;
+}
+
+.battery-level {
+    width: 70%;
+    height: 100%;
+    background: #4ade80;
+    border-radius: 1px;
+}
+
+/* ── Screen Area ── */
+.phone-screen {
+    flex: 1;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.phone-screen::-webkit-scrollbar { width: 0; }
+
+/* ── Header ── */
+.screen-header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.screen-header h2 {
+    color: #e0e0e0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.screen-header .subtitle {
+    color: #666;
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+/* ── App Buttons ── */
+.app-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 4px 0;
+}
+
+.app-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 14px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-btn:hover {
+    transform: scale(1.02);
+    filter: brightness(1.15);
+}
+
+.app-btn:active {
+    transform: scale(0.97);
+}
+
+.app-btn .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.app-btn .btn-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-btn .btn-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.app-btn .btn-desc {
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 1px;
+}
+
+/* ── App Button Colors ── */
+.app-btn.inventory  { background: linear-gradient(135deg, #2d6a4f, #40916c); }
+.app-btn.inventory .icon  { background: rgba(255,255,255,0.15); }
+
+.app-btn.business   { background: linear-gradient(135deg, #7b2cbf, #9d4edd); }
+.app-btn.business .icon   { background: rgba(255,255,255,0.15); }
+
+.app-btn.taxi       { background: linear-gradient(135deg, #e6a817, #f0c040); }
+.app-btn.taxi .icon       { background: rgba(0,0,0,0.15); }
+.app-btn.taxi .btn-label  { color: #1a1a1a; }
+.app-btn.taxi .btn-desc   { color: rgba(0,0,0,0.5); }
+
+.app-btn.usedcars   { background: linear-gradient(135deg, #1d3557, #457b9d); }
+.app-btn.usedcars .icon   { background: rgba(255,255,255,0.15); }
+
+.app-btn.stocks     { background: linear-gradient(135deg, #b7410e, #e85d26); }
+.app-btn.stocks .icon     { background: rgba(255,255,255,0.15); }
+
+.app-btn.racing     { background: linear-gradient(135deg, #0f4c75, #3282b8); }
+.app-btn.racing .icon     { background: rgba(255,255,255,0.15); }
+
+.app-btn.skills     { background: linear-gradient(135deg, #4a4e69, #6d6875); }
+.app-btn.skills .icon     { background: rgba(255,255,255,0.15); }
+
+/* ── Skills Screen ── */
+.skills-screen {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 4px 0;
+}
+
+.skills-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.skills-header h3 {
+    color: #e0e0e0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: #e0e0e0;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-row {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.skill-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.skill-level {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #40916c, #4ade80);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.skill-xp {
+    margin-top: 6px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    text-align: right;
+}
+
+/* ── Bottom Bar ── */
+.phone-bottom-bar {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+}
+
+.home-indicator {
+    width: 100px;
+    height: 4px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 2px;
+}
+
+/* ── Close Hint ── */
+.close-hint {
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 10px;
+    padding-top: 6px;
+}
